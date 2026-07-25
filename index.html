@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARNOLD'S TRUCKING LOGISTICS LLC | Nationwide Box Truck Freight Services</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="ARNOLD'S TRUCKING LOGISTICS LLC offers reliable nationwide box truck transportation, expedited shipping, and freight logistics across 48 states. Owned by Rodney Arnold. USDOT #4314007, MC #1682000.">
+  <meta name="keywords" content="ARNOLD'S TRUCKING LOGISTICS LLC, Rodney Arnold, yellow Hino box truck, 26ft box truck, expedited freight, Huntersville NC trucking, USDOT 4314007, MC 1682000, freight quote, driver application">
+  <meta name="author" content="ARNOLD'S TRUCKING LOGISTICS LLC">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="ARNOLD'S TRUCKING LOGISTICS LLC | Moving Box Truck Freight Across America">
+  <meta property="og:description" content="Dependable, customer-focused Box Truck transportation built on safety, speed, and on-time deliveries. Owned by Rodney Arnold. MC #1682000.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- Page Loader Animation -->
+  <div id="loader" class="page-loader">
+    <div class="loader-content">
+      <div class="loader-truck">
+        <svg viewBox="0 0 100 40" class="truck-svg">
+          <!-- Box Body (Clean Yellow / White Hino) -->
+          <rect x="5" y="5" width="56" height="22" rx="2" fill="#EAB308" opacity="0.95" />
+          <line x1="60" y1="6" x2="60" y2="26" stroke="#CA8A04" stroke-width="1.5" />
+          <!-- Cab (Yellow Hino) -->
+          <path d="M62,12 L76,12 L82,19 L82,27 L62,27 Z" fill="#F59E0B" />
+          <rect x="64" y="14" width="7" height="6" fill="#0F172A" />
+          <!-- Wheels -->
+          <circle cx="20" cy="30" r="4" fill="#0F172A" stroke="#FFFFFF" stroke-width="1.5" />
+          <circle cx="52" cy="30" r="4" fill="#0F172A" stroke="#FFFFFF" stroke-width="1.5" />
+          <circle cx="74" cy="30" r="4" fill="#0F172A" stroke="#FFFFFF" stroke-width="1.5" />
+        </svg>
+        <div class="road-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <h2 class="loader-title">ARNOLD'S TRUCKING LOGISTICS LLC</h2>
+      <p class="loader-subtitle">Loading Box Truck Logistics Excellence...</p>
+    </div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="#" class="logo-link">
+        <div class="logo-wrapper">
+          <span class="logo-text">ARNOLD'S<span class="orange-text">LOGISTICS</span></span>
+          <span class="logo-sub">TRUCKING LLC &bull; MC #1682000</span>
+        </div>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <ul>
+          <li><a href="#" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#fleet" class="nav-link">Fleet</a></li>
+          <li><a href="#recruitment" class="nav-link">Join Our Fleet</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:6465459289" class="phone-cta">
+          <i data-lucide="phone"></i>
+          <span>(646) 545-9289</span>
+        </a>
+        <button id="admin-toggle-btn" class="btn btn-outline admin-trigger" aria-label="Admin Portal">
+          <i data-lucide="shield-check"></i>
+          <span>Admin</span>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-bg-image" style="background-image: url('./assets/hero_box_truck.png');"></div>
+    
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="badge-group">
+          <span class="badge hero-badge">YELLOW HINO BOX TRUCK FLEET</span>
+          <span class="badge authority-badge">USDOT #4314007 | MC #1682000</span>
+        </div>
+        <h1 class="hero-title animate-text">Moving Freight Across America With <span class="orange-gradient">Box Truck Precision</span></h1>
+        <p class="hero-subtitle animate-text">Reliable Hino Box Truck Transportation, Expedited Freight Solutions, & Dedicated Regional/OTR Shipping Owned by Rodney Arnold.</p>
+        
+        <div class="hero-buttons">
+          <a href="#quote" class="btn btn-primary">Request A Freight Quote <i data-lucide="arrow-right"></i></a>
+          <a href="#recruitment" class="btn btn-secondary">Join Our Fleet</a>
+        </div>
+      </div>
+
+      <!-- Animated Statistics Grid -->
+      <div class="hero-stats-grid">
+        <div class="stat-card glass-card">
+          <div class="stat-icon"><i data-lucide="truck"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-number" data-target="26">0</h3>
+            <span class="stat-label">FT Box Truck Fleet</span>
+          </div>
+        </div>
+        <div class="stat-card glass-card">
+          <div class="stat-icon"><i data-lucide="navigation"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-number" data-target="48">0</h3>
+            <span class="stat-label">States Coverage</span>
+          </div>
+        </div>
+        <div class="stat-card glass-card">
+          <div class="stat-icon"><i data-lucide="clock"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-number" data-target="99">0</h3>
+            <span class="stat-label">% On-Time Delivery</span>
+          </div>
+        </div>
+        <div class="stat-card glass-card">
+          <div class="stat-icon"><i data-lucide="headphones"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-number" data-target="24">0</h3>
+            <span class="stat-label">/7 Live Dispatch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="about-section section-padding">
+    <div class="container">
+      <div class="grid-2col align-center">
+        <div class="about-content">
+          <span class="section-tag">About ARNOLD'S TRUCKING LOGISTICS LLC</span>
+          <h2 class="section-title">A Yellow Hino Box Truck Fleet Built On Trust & Speed</h2>
+          <p class="about-text">
+            <strong>ARNOLD'S TRUCKING LOGISTICS LLC</strong> was established by <strong>Rodney Arnold</strong> with a commitment to offering high-caliber box truck transportation and logistics across the United States. Headquartered in Huntersville, North Carolina, we operate with active regulatory authorities (<strong>USDOT #4314007</strong> and <strong>MC #1682000</strong>).
+          </p>
+          <p class="about-text">
+            Specializing in commercial yellow Hino 26ft Box Trucks equipped with hydraulic liftgates, e-track cargo tie-downs, and air-ride suspensions, ARNOLD'S TRUCKING LOGISTICS LLC delivers palletized cargo, retail merchandise, and expedited loads safely and punctually.
+          </p>
+          
+          <div class="mission-box glass-card">
+            <div class="mission-icon">
+              <i data-lucide="target"></i>
+            </div>
+            <div class="mission-body">
+              <h4>Our Mission Statement</h4>
+              <p>"To deliver seamless box truck logistics solutions across America through unwavering integrity, safety standards, and personalized service led by Rodney Arnold."</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Interactive CSS 3D Hino Yellow Box Truck Model Container (Clean No Text) -->
+        <div class="truck-3d-wrapper">
+          <div class="truck-3d-container">
+            <div class="truck-3d-viewport">
+              <div class="box-truck-3d-object" id="interactive-truck">
+                <!-- Clean Yellow Cargo Box (No Text) -->
+                <div class="bt-face bt-front"></div>
+                <div class="bt-face bt-back"></div>
+                <div class="bt-face bt-left"></div>
+                <div class="bt-face bt-right"></div>
+                <div class="bt-face bt-top"></div>
+                <div class="bt-face bt-bottom"></div>
+                <!-- Yellow Hino Cab -->
+                <div class="btc-face btc-front"></div>
+                <div class="btc-face btc-back"></div>
+                <div class="btc-face btc-left"></div>
+                <div class="btc-face btc-right"></div>
+                <div class="btc-face btc-top"></div>
+                <!-- Liftgate -->
+                <div class="liftgate-plate"></div>
+              </div>
+            </div>
+          </div>
+          <div class="truck-3d-instructions">
+            <p><i data-lucide="rotate-3d"></i> Interactive Yellow Hino Box Truck &bull; Hover or Drag to inspect fleet unit</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services Section -->
+  <section id="services" class="services-section section-padding bg-dark">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Our Core Offerings</span>
+        <h2 class="section-title text-white">Full-Service Box Truck Freight Solutions</h2>
+        <p class="section-subtitle">ARNOLD'S TRUCKING LOGISTICS LLC deploys versatile 26ft Hino box trucks with liftgates to accommodate commercial, retail, and expedited freight requirements nationwide.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service Card 1 -->
+        <div class="service-card glass-card">
+          <div class="service-icon"><i data-lucide="truck"></i></div>
+          <h3 class="service-name">Expedited Box Truck Freight</h3>
+          <p class="service-desc">Time-critical point-to-point transportation using dedicated 26ft Hino box trucks with liftgate loading capabilities for rapid turnaround.</p>
+          <div class="card-bg-gradient"></div>
+        </div>
+        <!-- Service Card 2 -->
+        <div class="service-card glass-card">
+          <div class="service-icon"><i data-lucide="package-check"></i></div>
+          <h3 class="service-name">FTL & LTL Box Cargo</h3>
+          <p class="service-desc">Handling both Full Truckload and Less-Than-Truckload palletized cargo safely, without unnecessary intermediate re-handling.</p>
+          <div class="card-bg-gradient"></div>
+        </div>
+        <!-- Service Card 3 -->
+        <div class="service-card glass-card">
+          <div class="service-icon"><i data-lucide="handshake"></i></div>
+          <h3 class="service-name">Freight Broker Partnerships</h3>
+          <p class="service-desc">Registered and fully compliant under MC #1682000 and DOT #4314007 with North America's leading 3PL freight brokers.</p>
+          <div class="card-bg-gradient"></div>
+        </div>
+        <!-- Service Card 4 -->
+        <div class="service-card glass-card">
+          <div class="service-icon"><i data-lucide="network"></i></div>
+          <h3 class="service-name">24/7 Dedicated Dispatch</h3>
+          <p class="service-desc">Continuous load monitoring, automated client status notifications, and optimal routing managed by our dispatch team.</p>
+          <div class="card-bg-gradient"></div>
+        </div>
+        <!-- Service Card 5 -->
+        <div class="service-card glass-card">
+          <div class="service-icon"><i data-lucide="map-pin"></i></div>
+          <h3 class="service-name">Nationwide 48-State Routes</h3>
+          <p class="service-desc">Fully licensed, bonded, and insured carrier operations connecting East Coast, Midwest, Southern, and OTR shipping lanes.</p>
+          <div class="card-bg-gradient"></div>
+        </div>
+        <!-- Service Card 6 -->
+        <div class="service-card glass-card">
+          <div class="service-icon"><i data-lucide="users"></i></div>
+          <h3 class="service-name">Box Truck Lease-On Support</h3>
+          <p class="service-desc">Dedicated onboarding for box truck owner-operators, offering competitive pay, prompt settlements, and steady dispatch routes.</p>
+          <div class="card-bg-gradient"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fleet Gallery & Owner Details -->
+  <section id="fleet" class="fleet-section section-padding">
+    <div class="container">
+      <div class="grid-2col align-center section-header-split">
+        <div>
+          <span class="section-tag">Our Yellow Box Truck Fleet</span>
+          <h2 class="section-title">Modern Fleet & Operational Power</h2>
+          <p class="section-subtitle" style="text-align: left; max-width: 100%;">Outfitted with 26-foot Hino yellow box body units, heavy-duty hydraulic liftgates, e-track cargo straps, and GPS real-time tracking.</p>
+        </div>
+        <div class="owner-badge glass-card">
+          <div class="owner-avatar">
+            <span class="avatar-letter">RA</span>
+          </div>
+          <div class="owner-details">
+            <h4 class="owner-name">Rodney Arnold</h4>
+            <p class="owner-title">Founder & Owner</p>
+            <span class="owner-org">ARNOLD'S TRUCKING LOGISTICS LLC</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="fleet-gallery">
+        <div class="gallery-item glass-card card-hover-expand">
+          <div class="gallery-image" style="background-image: url('./assets/yellow_hino_truck.png');"></div>
+          <div class="gallery-info">
+            <h4>Yellow Hino Commercial Box Trucks</h4>
+            <p>Clean, unbranded, weather-sealed cargo boxes with high payload capacity.</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item glass-card card-hover-expand">
+          <div class="gallery-image" style="background-image: url('./assets/box_loading.png');"></div>
+          <div class="gallery-info">
+            <h4>Hydraulic Liftgate Loading</h4>
+            <p>Equipped for easy loading/unloading at docks or ground level.</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item glass-card card-hover-expand">
+          <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800');"></div>
+          <div class="gallery-info">
+            <h4>Expedited Interstate Transport</h4>
+            <p>Direct OTR dispatch with minimal stopovers and prompt ETA.</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item glass-card card-hover-expand">
+          <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800');"></div>
+          <div class="gallery-info">
+            <h4>Retail & Distribution Drop-offs</h4>
+            <p>Punctual arrivals at major North American logistics hubs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real-Time Interactive Map & Tracking Integration -->
+  <section class="tracking-map-section section-padding bg-dark">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Active Logistics Map</span>
+        <h2 class="section-title text-white">Live Box Truck Tracking & Operations</h2>
+        <p class="section-subtitle">Enter your shipment code below to view real-time location and status markers on our interactive map.</p>
+      </div>
+
+      <div class="tracking-grid glass-card">
+        <!-- Control Box (Left Side) -->
+        <div class="tracking-control-box">
+          <h3 class="box-title">Freight Status Inquiry</h3>
+          <p class="box-desc">Enter your cargo reference tracking number to locate your active box truck shipment.</p>
+          
+          <div class="tracking-search-wrapper">
+            <input type="text" id="tracking-input" placeholder="e.g., ARNOLD-777 or ARNOLD-999" aria-label="Tracking Reference Number">
+            <button id="tracking-search-btn" class="btn btn-primary"><i data-lucide="search"></i> Search</button>
+          </div>
+          <p class="tracking-tip">Demo Codes: <strong class="orange-text">ARNOLD-777</strong> (In Transit), <strong class="orange-text">ARNOLD-999</strong> (Delivered)</p>
+          
+          <div id="tracking-result-box" class="tracking-result-box hidden">
+            <!-- Dynamic Tracker Content -->
+            <div class="tracking-summary">
+              <span id="tracker-status-badge" class="badge">In Transit</span>
+              <h4 id="tracker-ref-id">ARNOLD-777</h4>
+            </div>
+            
+            <div class="tracking-route-details">
+              <div>
+                <span class="route-label">Origin</span>
+                <p id="tracker-origin">Huntersville, NC</p>
+              </div>
+              <div class="route-arrow"><i data-lucide="arrow-right"></i></div>
+              <div>
+                <span class="route-label">Destination</span>
+                <p id="tracker-destination">Atlanta, GA</p>
+              </div>
+            </div>
+
+            <!-- Vertical Timeline Tracker -->
+            <div class="timeline-wrapper">
+              <div class="timeline-step" id="step-ordered">
+                <span class="step-dot"></span>
+                <div class="step-text">
+                  <h5>Order Confirmed</h5>
+                  <p>Freight booked & Hino box truck assigned</p>
+                </div>
+              </div>
+              <div class="timeline-step" id="step-loaded">
+                <span class="step-dot"></span>
+                <div class="step-text">
+                  <h5>Cargo Loaded</h5>
+                  <p>26FT Box Truck loaded & liftgate secured</p>
+                </div>
+              </div>
+              <div class="timeline-step" id="step-transit">
+                <span class="step-dot"></span>
+                <div class="step-text">
+                  <h5>In Transit</h5>
+                  <p>Over-the-road transport in progress</p>
+                </div>
+              </div>
+              <div class="timeline-step" id="step-delivered">
+                <span class="step-dot"></span>
+                <div class="step-text">
+                  <h5>Delivered</h5>
+                  <p>Arrived at destination facility, signed BOL</p>
+                </div>
+              </div>
+            </div>
+            
+            <div id="tracker-update-info" class="tracker-update-info">
+              <i data-lucide="info"></i> Last active ping: <span id="tracker-ping-time">Just now</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Map Container (Right Side) -->
+        <div class="map-wrapper">
+          <div id="logistics-map"></div>
+          <div class="map-legend">
+            <span><span class="legend-color orange"></span> Active Box Truck</span>
+            <span><span class="legend-color navy"></span> Headquarters (NC)</span>
+            <span><span class="legend-dashed"></span> Route Path</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-section section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Our Key Strengths</span>
+        <h2 class="section-title">Why Shippers & Brokers Choose ARNOLD'S TRUCKING LOGISTICS LLC</h2>
+        <p class="section-subtitle">We maintain standard-setting reliability built specifically around the demands of box truck shipping.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+          <h4>Safety & Compliance</h4>
+          <p>Full FMCSA compliance, rigorous safety protocols, and daily pre-trip inspections under MC #1682000.</p>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><i data-lucide="user-check"></i></div>
+          <h4>Rodney Arnold's Leadership</h4>
+          <p>Direct oversight by owner Rodney Arnold ensures every client gets top-tier personal communication.</p>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><i data-lucide="radio-receiver"></i></div>
+          <h4>Real-Time Cellular Pings</h4>
+          <p>Instant location pings and direct communication with drivers for hassle-free broker updates.</p>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><i data-lucide="check-circle-2"></i></div>
+          <h4>99% On-Time Execution</h4>
+          <p>Optimized route mapping and dedicated driver pairs to ensure freight arrives strictly on schedule.</p>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><i data-lucide="dollar-sign"></i></div>
+          <h4>Competitive Rate Sheets</h4>
+          <p>Clear, transparent lane quotes designed to optimize margin for brokers and commercial shippers.</p>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><i data-lucide="globe"></i></div>
+          <h4>Nationwide Service</h4>
+          <p>Licensed for interstate operations across all 48 continental states from our Huntersville, NC hub.</p>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><i data-lucide="headphones"></i></div>
+          <h4>24/7 Dispatch Desk</h4>
+          <p>Around-the-clock dispatch support ready to handle emergency reroutes, dock pings, and load bookings.</p>
+        </div>
+        <div class="feature-card glass-card">
+          <div class="feature-icon"><i data-lucide="heart"></i></div>
+          <h4>Driver & Operator Respect</h4>
+          <p>Driver-focused culture with direct weekly payments, clear communication, and high-paying box truck loads.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Driver Recruitment & Lease-On Form -->
+  <section id="recruitment" class="recruitment-section section-padding bg-dark text-white">
+    <div class="container">
+      <div class="recruitment-banner glass-card">
+        <div class="recruitment-intro">
+          <span class="badge badge-accent">BOX TRUCK DRIVER CAREERS</span>
+          <h2 class="banner-title text-white">Lease-On With ARNOLD'S TRUCKING LOGISTICS LLC</h2>
+          <p class="banner-subtitle">Box Truck Owners & Drivers: Partner with Rodney Arnold for steady high-paying freight, weekly direct deposits, and professional dispatch support under MC #1682000.</p>
+          
+          <ul class="benefits-list">
+            <li><i data-lucide="circle-check" class="orange-text"></i> Weekly Direct Settlements</li>
+            <li><i data-lucide="circle-check" class="orange-text"></i> Dedicated 24/7 Dispatch Desk</li>
+            <li><i data-lucide="circle-check" class="orange-text"></i> High-Rate Regional & OTR Box Truck Lanes</li>
+            <li><i data-lucide="circle-check" class="orange-text"></i> Direct Broker Relationships & Steady Freight</li>
+            <li><i data-lucide="circle-check" class="orange-text"></i> Full Safety & FMCSA Compliance Support</li>
+            <li><i data-lucide="circle-check" class="orange-text"></i> Respectful, Driver-First Company Culture</li>
+          </ul>
+        </div>
+        
+        <div class="recruitment-form-box glass-card" id="driver-app-anchor">
+          <h3 class="form-title text-white">Box Truck Lease-On Application</h3>
+          <p class="form-desc text-white-50">Submit your credentials below. Rodney Arnold or our recruitment desk will contact you within 24 hours.</p>
+          
+          <form id="driver-application-form" class="logistics-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="driver-name">Full Name *</label>
+                <input type="text" id="driver-name" required placeholder="e.g. John Smith">
+              </div>
+              <div class="form-group">
+                <label for="driver-company">Company Name (If applicable)</label>
+                <input type="text" id="driver-company" placeholder="e.g. Smith Express LLC">
+              </div>
+              <div class="form-group">
+                <label for="driver-phone">Phone Number *</label>
+                <input type="tel" id="driver-phone" required placeholder="(646) 545-9289">
+              </div>
+              <div class="form-group">
+                <label for="driver-email">Email Address *</label>
+                <input type="email" id="driver-email" required placeholder="john@example.com">
+              </div>
+              <div class="form-group">
+                <label for="driver-location">Current Location *</label>
+                <input type="text" id="driver-location" required placeholder="Huntersville, NC">
+              </div>
+              <div class="form-group">
+                <label for="driver-truck-no">Truck Unit #</label>
+                <input type="text" id="driver-truck-no" placeholder="Unit 101">
+              </div>
+              <div class="form-group">
+                <label for="driver-truck-type">Box Truck Specifications *</label>
+                <select id="driver-truck-type" required>
+                  <option value="" disabled selected>Select equipment type</option>
+                  <option value="Yellow Hino 26ft Box Truck with Liftgate">Yellow Hino 26ft Box Truck with Liftgate</option>
+                  <option value="26ft Box Truck with Liftgate">26ft Box Truck with Liftgate</option>
+                  <option value="26ft Box Truck (Standard)">26ft Box Truck (Standard)</option>
+                  <option value="Straight Truck / Sleeper">Straight Truck / Sleeper</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="driver-experience">Years of Driving Experience *</label>
+                <input type="number" id="driver-experience" min="0" max="50" required placeholder="3">
+              </div>
+              <div class="form-group">
+                <label for="driver-mc">MC Number (If applicable)</label>
+                <input type="text" id="driver-mc" placeholder="1682000">
+              </div>
+              <div class="form-group">
+                <label for="driver-dot">DOT Number (If applicable)</label>
+                <input type="text" id="driver-dot" placeholder="4314007">
+              </div>
+              <div class="form-group span-2">
+                <label for="driver-states">Preferred Operating States / Regions *</label>
+                <input type="text" id="driver-states" required placeholder="NC, SC, VA, GA, FL, Midwest, OTR">
+              </div>
+              
+              <!-- File Upload Inputs -->
+              <div class="form-group">
+                <label>Upload CDL / License *</label>
+                <div class="file-upload-wrapper">
+                  <input type="file" id="driver-cdl" accept=".pdf,.jpg,.jpeg,.png" required class="file-input-hidden">
+                  <div class="file-upload-design">
+                    <i data-lucide="upload-cloud"></i>
+                    <span class="file-label-text">CDL_License.pdf</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Upload Insurance COI *</label>
+                <div class="file-upload-wrapper">
+                  <input type="file" id="driver-insurance" accept=".pdf,.jpg,.jpeg,.png" required class="file-input-hidden">
+                  <div class="file-upload-design">
+                    <i data-lucide="upload-cloud"></i>
+                    <span class="file-label-text">Insurance_COI.pdf</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group span-2">
+                <label for="driver-notes">Additional Rig Notes / Equipment Features</label>
+                <textarea id="driver-notes" rows="3" placeholder="Specify Hino specs, liftgate capacity, e-tracks, or clean driving record details."></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block form-submit-btn">
+              <span>Submit Lease-On Application</span>
+              <i data-lucide="send"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Request Form Section -->
+  <section id="quote" class="quote-section section-padding">
+    <div class="container">
+      <div class="quote-grid glass-card">
+        <div class="quote-info-side">
+          <span class="section-tag">Instant Rate Inquiry</span>
+          <h2 class="section-title">Request A Box Truck Freight Quote</h2>
+          <p class="section-desc">Submit your shipment route, pallet count, and pickup details below. Rodney Arnold's dispatch desk will issue custom rate quotes immediately.</p>
+          
+          <div class="quote-highlight-cards">
+            <div class="highlight-item">
+              <i data-lucide="route" class="orange-text"></i>
+              <div>
+                <h5>Optimized Box Truck Pricing</h5>
+                <p>Fair, competitive per-mile lane rates.</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <i data-lucide="calendar" class="orange-text"></i>
+              <div>
+                <h5>Dedicated Fleet Capacity</h5>
+                <p>Guaranteed 26ft box truck availability under MC #1682000.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-form-side">
+          <form id="shipper-quote-form" class="logistics-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="quote-company">Shipper Company Name *</label>
+                <input type="text" id="quote-company" required placeholder="e.g. Apex Logistics Inc.">
+              </div>
+              <div class="form-group">
+                <label for="quote-contact">Contact Name *</label>
+                <input type="text" id="quote-contact" required placeholder="e.g. Michael Miller">
+              </div>
+              <div class="form-group">
+                <label for="quote-phone">Phone Number *</label>
+                <input type="tel" id="quote-phone" required placeholder="(646) 545-9289">
+              </div>
+              <div class="form-group">
+                <label for="quote-email">Email Address *</label>
+                <input type="email" id="quote-email" required placeholder="michael@company.com">
+              </div>
+              <div class="form-group">
+                <label for="quote-pickup">Pickup Origin City/Zip *</label>
+                <input type="text" id="quote-pickup" required placeholder="Huntersville, NC 28078">
+              </div>
+              <div class="form-group">
+                <label for="quote-delivery">Delivery Destination City/Zip *</label>
+                <input type="text" id="quote-delivery" required placeholder="Atlanta, GA 30301">
+              </div>
+              <div class="form-group">
+                <label for="quote-freight">Cargo / Commodity Type *</label>
+                <input type="text" id="quote-freight" required placeholder="Palletized dry merchandise">
+              </div>
+              <div class="form-group">
+                <label for="quote-weight">Estimated Weight (lbs) *</label>
+                <input type="number" id="quote-weight" required min="1" max="15000" placeholder="8500">
+              </div>
+              <div class="form-group span-2">
+                <label for="quote-trailer">Box Truck Requirements *</label>
+                <select id="quote-trailer" required>
+                  <option value="Yellow Hino 26ft Box Truck with Liftgate" selected>Yellow Hino 26ft Box Truck with Liftgate</option>
+                  <option value="26ft Box Truck (Standard Dock)">26ft Box Truck (Standard Dock)</option>
+                  <option value="Expedited Team Drivers Box Truck">Expedited Team Drivers Box Truck</option>
+                </select>
+              </div>
+              <div class="form-group span-2">
+                <label for="quote-notes">Additional Shipping / Dock Notes</label>
+                <textarea id="quote-notes" rows="3" placeholder="Specify dock appointment times, liftgate requirements, or pallet jack demands."></textarea>
+              </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block form-submit-btn">
+              <span>Calculate Freight Rate</span>
+              <i data-lucide="calculator"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section section-padding bg-dark">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Client Reviews</span>
+        <h2 class="section-title text-white">Trusted By Freight Brokers & Shippers</h2>
+        <p class="section-subtitle">Read what freight coordinators and owner-operators say about Rodney Arnold and ARNOLD'S TRUCKING LOGISTICS LLC.</p>
+      </div>
+
+      <div class="testimonials-slider-container">
+        <div class="testimonials-track" id="testimonial-track">
+          <!-- Slide 1 -->
+          <div class="testimonial-card glass-card">
+            <div class="review-stars">
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+            </div>
+            <p class="review-text">"ARNOLD'S TRUCKING LOGISTICS LLC is one of our go-to box truck carriers out of North Carolina. Rodney Arnold's team provides proactive tracking updates and delivers 100% on time. Liftgate loads are handled cleanly every time."</p>
+            <div class="reviewer-meta">
+              <div class="reviewer-img" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=120');"></div>
+              <div class="reviewer-details">
+                <h5 class="reviewer-name">Marcus Vance</h5>
+                <span class="reviewer-title">Logistics Manager, CH Robinson</span>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="testimonial-card glass-card">
+            <div class="review-stars">
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+            </div>
+            <p class="review-text">"When we have hot expedited box truck loads in the Southeast, Rodney Arnold is the first call we make. Excellent MC #1682000 safety record, clear cellular communication, and flawless rate execution."</p>
+            <div class="reviewer-meta">
+              <div class="reviewer-img" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120');"></div>
+              <div class="reviewer-details">
+                <h5 class="reviewer-name">David L. Miller</h5>
+                <span class="reviewer-title">Carrier Operations Specialist, TQL</span>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="testimonial-card glass-card">
+            <div class="review-stars">
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+              <i data-lucide="star" class="star-filled"></i>
+            </div>
+            <p class="review-text">"Leasing my box truck onto ARNOLD'S TRUCKING LOGISTICS LLC was the best business move. Rodney Arnold treats drivers with respect, and direct weekly payments under MC #1682000 are always right on time."</p>
+            <div class="reviewer-meta">
+              <div class="reviewer-img" style="background-image: url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=120');"></div>
+              <div class="reviewer-details">
+                <h5 class="reviewer-name">Eduardo Rodriguez</h5>
+                <span class="reviewer-title">Box Truck Owner Operator, Charlotte Freight</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="slider-controls">
+          <button id="prev-review-btn" class="slider-arrow" aria-label="Previous Review"><i data-lucide="chevron-left"></i></button>
+          <div class="slider-dots" id="slider-dots"></div>
+          <button id="next-review-btn" class="slider-arrow" aria-label="Next Review"><i data-lucide="chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Accordion) -->
+  <section class="faq-section section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Common Questions</span>
+        <h2 class="section-title">Logistics & Authority FAQ</h2>
+        <p class="section-subtitle">Find fast answers regarding box truck fleet capabilities, regulatory numbers, and driver onboarding.</p>
+      </div>
+
+      <div class="faq-grid max-width-md">
+        <div class="faq-item glass-card">
+          <div class="faq-question">
+            <span>What are ARNOLD'S TRUCKING LOGISTICS LLC authority credentials?</span>
+            <i data-lucide="plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>ARNOLD'S TRUCKING LOGISTICS LLC is an active, fully insured FMCSA registered motor carrier operating under <strong>USDOT #4314007</strong> and <strong>MC #1682000</strong>. Owned by Rodney Arnold.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item glass-card">
+          <div class="faq-question">
+            <span>What equipment type is in the fleet?</span>
+            <i data-lucide="plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our fleet consists primarily of commercial yellow Hino 26-foot Box Trucks outfitted with hydraulic liftgates, e-track cargo tie-downs, air-ride suspensions, and pallet jack equipment suitable for dock-to-dock or ground-level pickup and delivery.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item glass-card">
+          <div class="faq-question">
+            <span>Where is ARNOLD'S TRUCKING LOGISTICS LLC based and what areas do you serve?</span>
+            <i data-lucide="plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We are based at 13810 BOREN ST #101, HUNTERSVILLE, NC, 28078. We provide nationwide box truck shipping coverage across all 48 continental states.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item glass-card">
+          <div class="faq-question">
+            <span>How fast can I get a freight rate quote?</span>
+            <i data-lucide="plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Quotes submitted through our online quote form are reviewed directly by Rodney Arnold's dispatch desk, and responses are emailed within 15–30 minutes during business hours.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item glass-card">
+          <div class="faq-question">
+            <span>Can Box Truck Owner Operators lease onto your authority?</span>
+            <i data-lucide="plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! We welcome qualified box truck owner-operators to lease onto our MC #1682000 authority. You can submit your CDL and Insurance COI directly through our online Lease-On Application form.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section section-padding bg-dark text-white">
+    <div class="container">
+      <div class="grid-2col align-stretch">
+        <div class="contact-info-panel glass-card">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title text-white">Contact Our Logistics Office</h2>
+          <p class="section-desc text-white-50">Speak directly to Rodney Arnold or our dispatch team for freight quotes, driver setups, or load status.</p>
+          
+          <div class="contact-details-list">
+            <div class="contact-item">
+              <div class="contact-icon"><i data-lucide="building"></i></div>
+              <div class="contact-body">
+                <h5>ARNOLD'S TRUCKING LOGISTICS LLC</h5>
+                <p><strong>Owner:</strong> Rodney Arnold</p>
+                <p>13810 BOREN ST #101, HUNTERSVILLE, NC, 28078</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i data-lucide="phone"></i></div>
+              <div class="contact-body">
+                <h5>Owner & Dispatch Hotline</h5>
+                <a href="tel:6465459289" class="contact-link text-white font-semibold">(646) 545-9289</a>
+                <p>Direct line for active dispatch and owner pings</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i data-lucide="shield"></i></div>
+              <div class="contact-body">
+                <h5>Regulatory Registration</h5>
+                <p>USDOT #4314007</p>
+                <p>MC #1682000</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-actions-grid">
+            <a href="tel:6465459289" class="btn btn-primary"><i data-lucide="phone-call"></i> Call Owner Now</a>
+            <a href="https://maps.google.com/?q=13810+BOREN+ST+#101,+HUNTERSVILLE,+NC,+28078" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i data-lucide="map-pin"></i> Get Directions</a>
+          </div>
+        </div>
+
+        <div class="contact-right-panel glass-card">
+          <h3 class="form-title text-white">Send Direct Message</h3>
+          <p class="form-desc text-white-50">Write to Rodney Arnold & the dispatch office below.</p>
+          
+          <form id="contact-email-form" class="logistics-form">
+            <div class="form-group">
+              <label for="contact-name">Full Name *</label>
+              <input type="text" id="contact-name" required placeholder="e.g. Marcus Vance">
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address *</label>
+              <input type="email" id="contact-email" required placeholder="marcus@company.com">
+            </div>
+            <div class="form-group">
+              <label for="contact-subject">Subject *</label>
+              <input type="text" id="contact-subject" required placeholder="e.g. NC to GA Dedicated Box Truck Lanes">
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message *</label>
+              <textarea id="contact-message" rows="4" required placeholder="Write your message here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block form-submit-btn">
+              <span>Send Message</span>
+              <i data-lucide="mail"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-logo">ARNOLD'S<span class="orange-text">LOGISTICS</span> <span class="subtext">TRUCKING LLC</span></span>
+          <p class="brand-desc">Nationwide 26ft Box Truck freight carrier. Insured, bonded, FMCSA registered logistics provider based in Huntersville, NC. Owned by Rodney Arnold.</p>
+          <div class="authority-badges">
+            <span class="badge">DOT #4314007</span>
+            <span class="badge">MC #1682000</span>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Box Truck Services</a></li>
+            <li><a href="#fleet">Our Fleet</a></li>
+            <li><a href="#recruitment">Join Our Fleet</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-legal">
+          <h4>Quick Portals</h4>
+          <ul>
+            <li><a href="#quote">Request Freight Quote</a></li>
+            <li><a href="#driver-app-anchor">Box Truck Lease-On Application</a></li>
+            <li><a href="#" id="admin-trigger-footer">Admin Console</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact">
+          <h4>Huntersville Desk</h4>
+          <p>13810 BOREN ST #101<br>HUNTERSVILLE, NC 28078</p>
+          <p>Owner: Rodney Arnold</p>
+          <a href="tel:6465459289" class="phone-link"><i data-lucide="phone"></i> (646) 545-9289</a>
+          
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook Link"><i data-lucide="facebook"></i></a>
+            <a href="#" aria-label="Twitter Link"><i data-lucide="twitter"></i></a>
+            <a href="#" aria-label="Linkedin Link"><i data-lucide="linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <hr class="footer-divider">
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 ARNOLD'S TRUCKING LOGISTICS LLC. All Rights Reserved. FMCSA Compliant. USDOT #4314007 | MC #1682000.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating AI Chatbot Widget -->
+  <div class="chatbot-widget" id="chatbot-widget">
+    <button class="chatbot-toggle-btn" id="chatbot-toggle-btn" aria-label="Open Chatbot Assistant">
+      <i data-lucide="message-square" class="icon-open"></i>
+      <i data-lucide="x" class="icon-close hidden"></i>
+      <span class="chat-pulse"></span>
+    </button>
+    
+    <div class="chatbot-window glass-card hidden" id="chatbot-window">
+      <div class="chat-header">
+        <div class="chat-avatar">
+          <span class="avatar-letter">A</span>
+        </div>
+        <div class="chat-title-wrapper">
+          <h4>ArnoldBot</h4>
+          <p><span class="dot-online"></span> AI Box Truck Dispatcher</p>
+        </div>
+      </div>
+      
+      <div class="chat-body" id="chat-body">
+        <div class="chat-msg bot-msg">
+          <div class="msg-content">
+            <p>Hello! Welcome to ARNOLD'S TRUCKING LOGISTICS LLC! I'm ArnoldBot, Rodney Arnold's virtual dispatch assistant. How can I assist your shipping or lease-on inquiry today?</p>
+          </div>
+        </div>
+        <div class="chat-options">
+          <button class="chat-opt-btn" data-value="quote">Request Freight Quote</button>
+          <button class="chat-opt-btn" data-value="join">Apply to Lease Box Truck</button>
+          <button class="chat-opt-btn" data-value="tracking">Track Active Cargo</button>
+          <button class="chat-opt-btn" data-value="contact">Office & Owner Details</button>
+        </div>
+      </div>
+      
+      <form class="chat-footer" id="chat-input-form">
+        <input type="text" id="chat-message-input" placeholder="Type your message..." aria-label="Chat input message">
+        <button type="submit" class="chat-send-btn" aria-label="Send message"><i data-lucide="send"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard Overlay -->
+  <div class="admin-dashboard-overlay hidden" id="admin-dashboard-overlay">
+    <div class="admin-dashboard-panel glass-card">
+      <div class="admin-header">
+        <div class="admin-header-title">
+          <i data-lucide="shield-alert" class="orange-text"></i>
+          <div>
+            <h3>Rodney Arnold Control Panel</h3>
+            <p>ARNOLD'S TRUCKING LOGISTICS LLC &bull; MC #1682000</p>
+          </div>
+        </div>
+        <button id="admin-close-btn" class="admin-close-btn" aria-label="Close Admin Dashboard"><i data-lucide="x"></i></button>
+      </div>
+
+      <!-- Login Window -->
+      <div id="admin-login-box" class="admin-login-box">
+        <form id="admin-login-form">
+          <div class="form-group">
+            <label for="admin-username">Admin Username</label>
+            <input type="text" id="admin-username" required value="admin" class="admin-input">
+          </div>
+          <div class="form-group">
+            <label for="admin-password">Password</label>
+            <input type="password" id="admin-password" required value="arnoldstrucking" class="admin-input">
+          </div>
+          <div id="login-error-msg" class="login-error-msg hidden">Invalid credentials. Try admin / arnoldstrucking.</div>
+          <button type="submit" class="btn btn-primary btn-block">Authorize Access</button>
+        </form>
+      </div>
+
+      <!-- Dashboard Contents (Toggled upon auth) -->
+      <div id="admin-content-box" class="admin-content-box hidden">
+        <!-- Tabs Nav -->
+        <nav class="admin-tabs">
+          <button class="admin-tab-btn active" data-tab="driver-apps"><i data-lucide="file-text"></i> Driver Apps (<span id="count-driver-apps">0</span>)</button>
+          <button class="admin-tab-btn" data-tab="shipper-quotes"><i data-lucide="calculator"></i> Freight Quotes (<span id="count-shipper-quotes">0</span>)</button>
+          <button class="admin-tab-btn" data-tab="tracking-manager"><i data-lucide="navigation"></i> Map Tracking</button>
+        </nav>
+
+        <!-- Tab contents -->
+        <div class="tab-contents">
+          <!-- Drivers List Tab -->
+          <div class="admin-tab-pane active" id="tab-driver-apps">
+            <div class="table-scroll-wrapper">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Driver Name</th>
+                    <th>Location</th>
+                    <th>Truck Spec</th>
+                    <th>Experience</th>
+                    <th>Files</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="driver-apps-tbody">
+                  <!-- Dynamic rows go here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <!-- Shipper Quotes Tab -->
+          <div class="admin-tab-pane" id="tab-shipper-quotes">
+            <div class="table-scroll-wrapper">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Shipper Company</th>
+                    <th>Contact</th>
+                    <th>Route (O &rarr; D)</th>
+                    <th>Weight</th>
+                    <th>Equipment</th>
+                    <th>Notes</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="shipper-quotes-tbody">
+                  <!-- Dynamic rows go here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <!-- Tracking Manager Tab -->
+          <div class="admin-tab-pane" id="tab-tracking-manager">
+            <div class="tracking-manager-tool">
+              <h4 class="sub-title">Control Active Box Truck Map Markers</h4>
+              <p class="desc">Select a tracking code to update its status or progress bar. Live updates reflect on customer map immediately.</p>
+              
+              <div class="tracking-edit-box">
+                <div class="form-group">
+                  <label for="admin-select-truck">Active Shipment</label>
+                  <select id="admin-select-truck">
+                    <option value="ARNOLD-777" selected>ARNOLD-777 (Origin: Huntersville, NC -> Dest: Atlanta, GA)</option>
+                    <option value="ARNOLD-999">ARNOLD-999 (Origin: Charlotte, NC -> Dest: Chicago, IL)</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="admin-truck-status">Current Status</label>
+                  <select id="admin-truck-status">
+                    <option value="ordered">Order Confirmed</option>
+                    <option value="loaded">Cargo Loaded</option>
+                    <option value="transit">In Transit</option>
+                    <option value="delivered">Delivered</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="admin-truck-progress">Transit Progress (0% - 100%)</label>
+                  <div class="flex-row">
+                    <input type="range" id="admin-truck-progress" min="0" max="100" value="60">
+                    <span id="admin-progress-value">60%</span>
+                  </div>
+                </div>
+
+                <button id="admin-update-tracking-btn" class="btn btn-primary"><i data-lucide="refresh-cw"></i> Update Live Shipment Status</button>
+              </div>
+              
+              <div class="alert-box alert-success hidden" id="tracking-update-alert">
+                <i data-lucide="check-circle-2"></i> Shipment information successfully updated on map!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Main JavaScript File -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
