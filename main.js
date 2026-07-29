@@ -1,6 +1,6 @@
 /* ==========================================================================
    ARNOLD'S TRUCKING LOGISTICS LLC - Main JavaScript Logic
-   Includes: Leaflet Map, 3D Yellow Hino Box Truck Interaction, Live Tracking, 
+   Includes: Leaflet Map, 3D Yellow Hino Box Truck 360° Interaction, Live Tracking, 
    Driver App & Freight Quote Forms, Testimonials Carousel, Chatbot & Admin Console.
    ========================================================================== */
 
@@ -81,27 +81,72 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
-  // Initial check if stats are in view
   if (document.querySelector('.hero-stats-grid')) {
     animateCounters();
     animatedStats = true;
   }
 
   // --------------------------------------------------------------------------
-  // Interactive 3D Yellow Hino Box Truck Viewer
+  // Interactive 3D Yellow Hino Box Truck Viewer (360° Rotatable with MC #1682000)
   // --------------------------------------------------------------------------
   const truck3D = document.getElementById('interactive-truck');
   const truckContainer = document.querySelector('.truck-3d-container');
+  const autoRotateBtn = document.getElementById('auto-rotate-btn');
+  const rotateLeftBtn = document.getElementById('rotate-left-btn');
+  const rotateRightBtn = document.getElementById('rotate-right-btn');
 
   if (truck3D && truckContainer) {
     let isDragging = false;
     let previousMouseX = 0;
     let currentRotationY = -35;
-    let currentRotationX = -15;
+    let currentRotationX = -12;
+    let autoSpin = true;
 
+    // Toggle Auto Spin button
+    if (autoRotateBtn) {
+      autoRotateBtn.addEventListener('click', () => {
+        autoSpin = !autoSpin;
+        if (autoSpin) {
+          truck3D.classList.add('auto-spin');
+          autoRotateBtn.classList.add('active');
+          autoRotateBtn.innerHTML = '<i data-lucide="refresh-cw"></i> 360° Auto Spin';
+        } else {
+          truck3D.classList.remove('auto-spin');
+          autoRotateBtn.classList.remove('active');
+          autoRotateBtn.innerHTML = '<i data-lucide="pause"></i> Spin Paused';
+        }
+        if (window.lucide) window.lucide.createIcons();
+      });
+    }
+
+    // Manual Rotate Left / Right Buttons
+    if (rotateLeftBtn) {
+      rotateLeftBtn.addEventListener('click', () => {
+        autoSpin = false;
+        truck3D.classList.remove('auto-spin');
+        if (autoRotateBtn) autoRotateBtn.classList.remove('active');
+        currentRotationY -= 45;
+        truck3D.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
+      });
+    }
+
+    if (rotateRightBtn) {
+      rotateRightBtn.addEventListener('click', () => {
+        autoSpin = false;
+        truck3D.classList.remove('auto-spin');
+        if (autoRotateBtn) autoRotateBtn.classList.remove('active');
+        currentRotationY += 45;
+        truck3D.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
+      });
+    }
+
+    // Drag logic
     truckContainer.addEventListener('mousedown', (e) => {
       isDragging = true;
       previousMouseX = e.clientX;
+      if (autoSpin) {
+        truck3D.classList.remove('auto-spin');
+      }
     });
 
     window.addEventListener('mouseup', () => { isDragging = false; });
@@ -109,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     truckContainer.addEventListener('mousemove', (e) => {
       if (isDragging) {
         const deltaX = e.clientX - previousMouseX;
-        currentRotationY += deltaX * 0.8;
+        currentRotationY += deltaX * 1.2;
         previousMouseX = e.clientX;
         truck3D.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
       }
@@ -119,6 +164,9 @@ document.addEventListener('DOMContentLoaded', () => {
     truckContainer.addEventListener('touchstart', (e) => {
       isDragging = true;
       previousMouseX = e.touches[0].clientX;
+      if (autoSpin) {
+        truck3D.classList.remove('auto-spin');
+      }
     });
 
     window.addEventListener('touchend', () => { isDragging = false; });
@@ -126,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     truckContainer.addEventListener('touchmove', (e) => {
       if (isDragging) {
         const deltaX = e.touches[0].clientX - previousMouseX;
-        currentRotationY += deltaX * 0.8;
+        currentRotationY += deltaX * 1.2;
         previousMouseX = e.touches[0].clientX;
         truck3D.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
       }
@@ -362,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       updateAdminTables();
       driverForm.reset();
-      showToast('Lease-On Application Submitted! Rodney Arnold will contact you shortly.', 'success');
+      showToast('Lease-On Application Submitted! CEO Rodney Arnold will contact you shortly.', 'success');
     });
   }
 
@@ -403,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       contactForm.reset();
-      showToast('Thank you! Message sent directly to Rodney Arnold & dispatch desk.', 'success');
+      showToast('Thank you! Message sent directly to CEO Rodney Arnold & dispatch desk.', 'success');
     });
   }
 
@@ -501,7 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const handleBotResponse = (query) => {
     const q = query.toLowerCase();
-    let response = "Thank you for contacting ARNOLD'S TRUCKING LOGISTICS LLC! Rodney Arnold and our dispatch team are ready to handle your box truck shipping needs. You can call us directly at (646) 545-9289.";
+    let response = "Thank you for contacting ARNOLD'S TRUCKING LOGISTICS LLC! CEO Rodney Arnold and our dispatch team are ready to handle your box truck shipping needs. You can call us directly at (646) 545-9289.";
 
     if (q.includes('quote') || q.includes('rate') || q.includes('price')) {
       response = "To request an instant rate quote for your 26ft Box Truck shipment, please fill out our Quote Form on this page or call (646) 545-9289.";
@@ -509,8 +557,8 @@ document.addEventListener('DOMContentLoaded', () => {
       response = "We welcome qualified Box Truck owner-operators! Apply under our MC #1682000 using the 'Join Our Fleet' section on this page.";
     } else if (q.includes('track') || q.includes('status') || q.includes('where')) {
       response = "You can enter your shipment reference code (e.g. ARNOLD-777) in our Live Tracking section to view real-time location on the map.";
-    } else if (q.includes('address') || q.includes('location') || q.includes('owner') || q.includes('phone')) {
-      response = "ARNOLD'S TRUCKING LOGISTICS LLC is owned by Rodney Arnold. Office Address: 13810 BOREN ST #101, HUNTERSVILLE, NC, 28078. Phone: (646) 545-9289. MC #1682000, USDOT #4314007.";
+    } else if (q.includes('address') || q.includes('location') || q.includes('owner') || q.includes('ceo') || q.includes('phone')) {
+      response = "ARNOLD'S TRUCKING LOGISTICS LLC is owned by CEO Rodney Arnold. Office Address: 13810 BOREN ST #101, HUNTERSVILLE, NC, 28078. Phone: (646) 545-9289. MC #1682000, USDOT #4314007.";
     }
 
     setTimeout(() => {
@@ -651,7 +699,7 @@ document.addEventListener('DOMContentLoaded', () => {
         trackingDatabase[selectedTruck].progress = newProgress;
         trackingDatabase[selectedTruck].status = newStatus;
         trackingDatabase[selectedTruck].statusText = newStatus.toUpperCase();
-        trackingDatabase[selectedTruck].pingTime = `Updated by Rodney Arnold just now (${newProgress}%)`;
+        trackingDatabase[selectedTruck].pingTime = `Updated by CEO Rodney Arnold just now (${newProgress}%)`;
 
         loadTrackingData(selectedTruck);
         if (trackingUpdateAlert) {

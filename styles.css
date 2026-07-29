@@ -134,6 +134,11 @@ ul {
   outline: none;
 }
 
+.btn-sm {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+}
+
 .btn-primary {
   background: linear-gradient(135deg, var(--color-primary) 0%, #EA580C 100%);
   color: #FFFFFF;
@@ -222,20 +227,17 @@ ul {
   text-align: center;
 }
 
-.loader-truck {
-  position: relative;
-  width: 120px;
-  margin: 0 auto 1.5rem;
+.loader-logo-img {
+  max-width: 130px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 20px var(--color-primary-glow));
+  animation: pulseLogo 2s infinite ease-in-out;
 }
 
-.truck-svg {
-  width: 100%;
-  animation: floatTruck 2s infinite ease-in-out;
-}
-
-@keyframes floatTruck {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+@keyframes pulseLogo {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
 }
 
 .road-dots {
@@ -293,6 +295,19 @@ ul {
   height: 80px;
 }
 
+.logo-brand-flex {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
 .logo-wrapper {
   display: flex;
   flex-direction: column;
@@ -300,7 +315,7 @@ ul {
 
 .logo-text {
   font-family: var(--font-heading);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: #FFFFFF;
@@ -591,7 +606,7 @@ ul {
   color: #94A3B8;
 }
 
-/* 3D Box Truck Interactive Viewer (Yellow Hino, Clean No Text) */
+/* 3D Box Truck 360° Rotatable Model & Typography */
 .truck-3d-wrapper {
   display: flex;
   flex-direction: column;
@@ -619,7 +634,7 @@ ul {
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
-  transform: rotateX(-15deg) rotateY(-35deg);
+  transform: rotateX(-12deg) rotateY(-35deg);
   transition: transform 0.1s ease-out;
   cursor: grab;
 }
@@ -628,17 +643,33 @@ ul {
   cursor: grabbing;
 }
 
-/* Clean Yellow Cargo Box Faces (No Text) */
+/* 360 Auto-Spin Keyframe */
+@keyframes spin360 {
+  0% { transform: rotateX(-12deg) rotateY(0deg); }
+  100% { transform: rotateX(-12deg) rotateY(360deg); }
+}
+
+.box-truck-3d-object.auto-spin {
+  animation: spin360 14s infinite linear;
+}
+
+.box-truck-3d-object.auto-spin:hover {
+  animation-play-state: paused;
+}
+
+/* Yellow Hino Box Faces with Company Name & MC # */
 .bt-face {
   position: absolute;
-  background: #FDE047; /* Bright Clean Yellow */
+  background: #FDE047; /* Bright Clean Hino Yellow */
   border: 1px solid #CA8A04;
-  color: transparent;
-  font-size: 0;
+  color: #0F172A;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  padding: 4px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.08);
 }
 
 .bt-front { width: 140px; height: 90px; transform: translateZ(60px); }
@@ -647,6 +678,35 @@ ul {
 .bt-right { width: 120px; height: 90px; transform: rotateY(90deg) translateZ(70px); }
 .bt-top { width: 140px; height: 120px; transform: rotateX(90deg) translateZ(45px); background: #FEF08A; }
 .bt-bottom { width: 140px; height: 120px; transform: rotateX(-90deg) translateZ(45px); background: #334155; }
+
+.bt-face-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bt-brand-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.65rem;
+  color: #0F172A;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.bt-brand-mc {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: rgba(15, 23, 42, 0.9);
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-top: 3px;
+  letter-spacing: 0.05em;
+}
 
 /* Yellow Hino Cab Faces */
 .btc-face {
@@ -668,13 +728,23 @@ ul {
   width: 120px;
   height: 10px;
   background: #64748B;
-  color: transparent;
+  color: #FFF;
+  font-size: 0.5rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 10px;
   transform: translateZ(65px);
   border-radius: 2px;
 }
 
+.truck-3d-controls {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
 .truck-3d-instructions {
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   font-size: 0.85rem;
   color: var(--color-text-subtle);
   display: flex;
@@ -752,19 +822,23 @@ ul {
   align-self: flex-start;
 }
 
-.owner-avatar {
-  width: 54px;
-  height: 54px;
+.owner-avatar-wrapper {
+  width: 68px;
+  height: 68px;
   border-radius: var(--radius-full);
+  padding: 2px;
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-gold) 100%);
-  color: #FFFFFF;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px var(--color-primary-glow);
+  box-shadow: 0 4px 20px var(--color-primary-glow);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.owner-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  object-position: top center;
 }
 
 .owner-name {
@@ -1441,6 +1515,18 @@ ul {
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
   gap: 3rem;
   margin-bottom: 4rem;
+}
+
+.footer-logo-flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-logo-img {
+  height: 52px;
+  width: auto;
 }
 
 .footer-logo {

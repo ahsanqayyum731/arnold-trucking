@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ARNOLD'S TRUCKING LOGISTICS LLC | Nationwide Box Truck Freight Services</title>
+  <link rel="icon" type="image/png" href="./assets/logo.png">
 
   <!-- SEO Meta Tags -->
   <meta name="description" content="ARNOLD'S TRUCKING LOGISTICS LLC offers reliable nationwide box truck transportation, expedited shipping, and freight logistics across 48 states. Owned by Rodney Arnold. USDOT #4314007, MC #1682000.">
@@ -12,8 +13,9 @@
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="ARNOLD'S TRUCKING LOGISTICS LLC | Moving Box Truck Freight Across America">
-  <meta property="og:description" content="Dependable, customer-focused Box Truck transportation built on safety, speed, and on-time deliveries. Owned by Rodney Arnold. MC #1682000.">
+  <meta property="og:description" content="Dependable, customer-focused Box Truck transportation built on safety, speed, and on-time deliveries. CEO Rodney Arnold. MC #1682000.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/logo.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,25 +36,11 @@
   <!-- Page Loader Animation -->
   <div id="loader" class="page-loader">
     <div class="loader-content">
-      <div class="loader-truck">
-        <svg viewBox="0 0 100 40" class="truck-svg">
-          <!-- Box Body (Clean Yellow / White Hino) -->
-          <rect x="5" y="5" width="56" height="22" rx="2" fill="#EAB308" opacity="0.95" />
-          <line x1="60" y1="6" x2="60" y2="26" stroke="#CA8A04" stroke-width="1.5" />
-          <!-- Cab (Yellow Hino) -->
-          <path d="M62,12 L76,12 L82,19 L82,27 L62,27 Z" fill="#F59E0B" />
-          <rect x="64" y="14" width="7" height="6" fill="#0F172A" />
-          <!-- Wheels -->
-          <circle cx="20" cy="30" r="4" fill="#0F172A" stroke="#FFFFFF" stroke-width="1.5" />
-          <circle cx="52" cy="30" r="4" fill="#0F172A" stroke="#FFFFFF" stroke-width="1.5" />
-          <circle cx="74" cy="30" r="4" fill="#0F172A" stroke="#FFFFFF" stroke-width="1.5" />
-        </svg>
-        <div class="road-dots">
-          <span></span><span></span><span></span>
-        </div>
+      <div class="loader-logo-wrapper">
+        <img src="./assets/logo.png" alt="ARNOLD'S TRUCKING LOGISTICS LLC" class="loader-logo-img">
       </div>
       <h2 class="loader-title">ARNOLD'S TRUCKING LOGISTICS LLC</h2>
-      <p class="loader-subtitle">Loading Box Truck Logistics Excellence...</p>
+      <p class="loader-subtitle">Loading Box Truck Freight Excellence...</p>
     </div>
   </div>
 
@@ -60,9 +48,12 @@
   <header class="main-header">
     <div class="container header-container">
       <a href="#" class="logo-link">
-        <div class="logo-wrapper">
-          <span class="logo-text">ARNOLD'S<span class="orange-text">LOGISTICS</span></span>
-          <span class="logo-sub">TRUCKING LLC &bull; MC #1682000</span>
+        <div class="logo-brand-flex">
+          <img src="./assets/logo.png" alt="ARNOLD'S TRUCKING LOGISTICS LLC Logo" class="brand-logo-img">
+          <div class="logo-wrapper">
+            <span class="logo-text">ARNOLD'S<span class="orange-text">LOGISTICS</span></span>
+            <span class="logo-sub">TRUCKING LLC &bull; MC #1682000</span>
+          </div>
         </div>
       </a>
       
@@ -174,31 +165,54 @@
           </div>
         </div>
         
-        <!-- Interactive CSS 3D Hino Yellow Box Truck Model Container (Clean No Text) -->
+        <!-- Interactive 360° Rotatable Box Truck Model Container with Company Name & MC # -->
         <div class="truck-3d-wrapper">
           <div class="truck-3d-container">
             <div class="truck-3d-viewport">
-              <div class="box-truck-3d-object" id="interactive-truck">
-                <!-- Clean Yellow Cargo Box (No Text) -->
-                <div class="bt-face bt-front"></div>
-                <div class="bt-face bt-back"></div>
-                <div class="bt-face bt-left"></div>
-                <div class="bt-face bt-right"></div>
+              <div class="box-truck-3d-object auto-spin" id="interactive-truck">
+                <!-- Cargo Box Faces with Company Name & MC # -->
+                <div class="bt-face bt-front">
+                  <span class="bt-brand-title">ARNOLD'S LOGISTICS</span>
+                  <span class="bt-brand-mc">MC #1682000</span>
+                </div>
+                <div class="bt-face bt-back">
+                  <span class="bt-brand-title">ARNOLD'S TRUCKING</span>
+                  <span class="bt-brand-mc">DOT #4314007</span>
+                </div>
+                <div class="bt-face bt-left">
+                  <div class="bt-face-content">
+                    <span class="bt-brand-title">ARNOLD'S TRUCKING LOGISTICS LLC</span>
+                    <span class="bt-brand-mc">MC #1682000 &bull; USDOT #4314007</span>
+                  </div>
+                </div>
+                <div class="bt-face bt-right">
+                  <div class="bt-face-content">
+                    <span class="bt-brand-title">ARNOLD'S TRUCKING LOGISTICS LLC</span>
+                    <span class="bt-brand-mc">MC #1682000 &bull; USDOT #4314007</span>
+                  </div>
+                </div>
                 <div class="bt-face bt-top"></div>
                 <div class="bt-face bt-bottom"></div>
-                <!-- Yellow Hino Cab -->
+                <!-- Yellow Hino Cab Faces -->
                 <div class="btc-face btc-front"></div>
                 <div class="btc-face btc-back"></div>
                 <div class="btc-face btc-left"></div>
                 <div class="btc-face btc-right"></div>
                 <div class="btc-face btc-top"></div>
                 <!-- Liftgate -->
-                <div class="liftgate-plate"></div>
+                <div class="liftgate-plate">LIFTGATE 3000 LBS</div>
               </div>
             </div>
           </div>
+
+          <div class="truck-3d-controls">
+            <button id="rotate-left-btn" class="btn btn-outline btn-sm"><i data-lucide="rotate-ccw"></i> Rotate</button>
+            <button id="auto-rotate-btn" class="btn btn-primary btn-sm active"><i data-lucide="refresh-cw"></i> 360° Auto Spin</button>
+            <button id="rotate-right-btn" class="btn btn-outline btn-sm"><i data-lucide="rotate-cw"></i> Rotate</button>
+          </div>
+
           <div class="truck-3d-instructions">
-            <p><i data-lucide="rotate-3d"></i> Interactive Yellow Hino Box Truck &bull; Hover or Drag to inspect fleet unit</p>
+            <p><i data-lucide="rotate-3d"></i> Interactive 360° Box Truck &bull; Drag mouse or touch to rotate 360 degrees</p>
           </div>
         </div>
       </div>
@@ -261,7 +275,7 @@
     </div>
   </section>
 
-  <!-- Fleet Gallery & Owner Details -->
+  <!-- Fleet Gallery & Owner Details (Featuring Rodney Arnold CEO Photo) -->
   <section id="fleet" class="fleet-section section-padding">
     <div class="container">
       <div class="grid-2col align-center section-header-split">
@@ -271,12 +285,12 @@
           <p class="section-subtitle" style="text-align: left; max-width: 100%;">Outfitted with 26-foot Hino yellow box body units, heavy-duty hydraulic liftgates, e-track cargo straps, and GPS real-time tracking.</p>
         </div>
         <div class="owner-badge glass-card">
-          <div class="owner-avatar">
-            <span class="avatar-letter">RA</span>
+          <div class="owner-avatar-wrapper">
+            <img src="./assets/ceo_rodney_arnold.jpg" alt="Rodney Arnold - CEO & Founder" class="owner-avatar-img">
           </div>
           <div class="owner-details">
             <h4 class="owner-name">Rodney Arnold</h4>
-            <p class="owner-title">Founder & Owner</p>
+            <p class="owner-title">Founder & CEO</p>
             <span class="owner-org">ARNOLD'S TRUCKING LOGISTICS LLC</span>
           </div>
         </div>
@@ -288,7 +302,7 @@
           <div class="gallery-image" style="background-image: url('./assets/yellow_hino_truck.png');"></div>
           <div class="gallery-info">
             <h4>Yellow Hino Commercial Box Trucks</h4>
-            <p>Clean, unbranded, weather-sealed cargo boxes with high payload capacity.</p>
+            <p>Clean weather-sealed cargo boxes with high payload capacity.</p>
           </div>
         </div>
         
@@ -428,7 +442,7 @@
         <div class="feature-card glass-card">
           <div class="feature-icon"><i data-lucide="user-check"></i></div>
           <h4>Rodney Arnold's Leadership</h4>
-          <p>Direct oversight by owner Rodney Arnold ensures every client gets top-tier personal communication.</p>
+          <p>Direct oversight by CEO Rodney Arnold ensures every client gets top-tier personal communication.</p>
         </div>
         <div class="feature-card glass-card">
           <div class="feature-icon"><i data-lucide="radio-receiver"></i></div>
@@ -471,7 +485,7 @@
         <div class="recruitment-intro">
           <span class="badge badge-accent">BOX TRUCK DRIVER CAREERS</span>
           <h2 class="banner-title text-white">Lease-On With ARNOLD'S TRUCKING LOGISTICS LLC</h2>
-          <p class="banner-subtitle">Box Truck Owners & Drivers: Partner with Rodney Arnold for steady high-paying freight, weekly direct deposits, and professional dispatch support under MC #1682000.</p>
+          <p class="banner-subtitle">Box Truck Owners & Drivers: Partner with CEO Rodney Arnold for steady high-paying freight, weekly direct deposits, and professional dispatch support under MC #1682000.</p>
           
           <ul class="benefits-list">
             <li><i data-lucide="circle-check" class="orange-text"></i> Weekly Direct Settlements</li>
@@ -670,7 +684,7 @@
       <div class="section-header text-center">
         <span class="section-tag">Client Reviews</span>
         <h2 class="section-title text-white">Trusted By Freight Brokers & Shippers</h2>
-        <p class="section-subtitle">Read what freight coordinators and owner-operators say about Rodney Arnold and ARNOLD'S TRUCKING LOGISTICS LLC.</p>
+        <p class="section-subtitle">Read what freight coordinators and owner-operators say about CEO Rodney Arnold and ARNOLD'S TRUCKING LOGISTICS LLC.</p>
       </div>
 
       <div class="testimonials-slider-container">
@@ -817,14 +831,14 @@
               <div class="contact-icon"><i data-lucide="building"></i></div>
               <div class="contact-body">
                 <h5>ARNOLD'S TRUCKING LOGISTICS LLC</h5>
-                <p><strong>Owner:</strong> Rodney Arnold</p>
+                <p><strong>CEO & Founder:</strong> Rodney Arnold</p>
                 <p>13810 BOREN ST #101, HUNTERSVILLE, NC, 28078</p>
               </div>
             </div>
             <div class="contact-item">
               <div class="contact-icon"><i data-lucide="phone"></i></div>
               <div class="contact-body">
-                <h5>Owner & Dispatch Hotline</h5>
+                <h5>CEO & Dispatch Hotline</h5>
                 <a href="tel:6465459289" class="contact-link text-white font-semibold">(646) 545-9289</a>
                 <p>Direct line for active dispatch and owner pings</p>
               </div>
@@ -840,7 +854,7 @@
           </div>
           
           <div class="contact-actions-grid">
-            <a href="tel:6465459289" class="btn btn-primary"><i data-lucide="phone-call"></i> Call Owner Now</a>
+            <a href="tel:6465459289" class="btn btn-primary"><i data-lucide="phone-call"></i> Call CEO Now</a>
             <a href="https://maps.google.com/?q=13810+BOREN+ST+#101,+HUNTERSVILLE,+NC,+28078" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i data-lucide="map-pin"></i> Get Directions</a>
           </div>
         </div>
@@ -881,7 +895,13 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <span class="footer-logo">ARNOLD'S<span class="orange-text">LOGISTICS</span> <span class="subtext">TRUCKING LLC</span></span>
+          <div class="footer-logo-flex">
+            <img src="./assets/logo.png" alt="ARNOLD'S TRUCKING LOGISTICS LLC Logo" class="footer-logo-img">
+            <div>
+              <span class="footer-logo">ARNOLD'S<span class="orange-text">LOGISTICS</span></span>
+              <span class="subtext">TRUCKING LLC &bull; HUNTERSVILLE, NC</span>
+            </div>
+          </div>
           <p class="brand-desc">Nationwide 26ft Box Truck freight carrier. Insured, bonded, FMCSA registered logistics provider based in Huntersville, NC. Owned by Rodney Arnold.</p>
           <div class="authority-badges">
             <span class="badge">DOT #4314007</span>
@@ -913,7 +933,7 @@
         <div class="footer-contact">
           <h4>Huntersville Desk</h4>
           <p>13810 BOREN ST #101<br>HUNTERSVILLE, NC 28078</p>
-          <p>Owner: Rodney Arnold</p>
+          <p>CEO: Rodney Arnold</p>
           <a href="tel:6465459289" class="phone-link"><i data-lucide="phone"></i> (646) 545-9289</a>
           
           <div class="social-icons">
@@ -958,14 +978,14 @@
       <div class="chat-body" id="chat-body">
         <div class="chat-msg bot-msg">
           <div class="msg-content">
-            <p>Hello! Welcome to ARNOLD'S TRUCKING LOGISTICS LLC! I'm ArnoldBot, Rodney Arnold's virtual dispatch assistant. How can I assist your shipping or lease-on inquiry today?</p>
+            <p>Hello! Welcome to ARNOLD'S TRUCKING LOGISTICS LLC! I'm ArnoldBot, CEO Rodney Arnold's virtual dispatch assistant. How can I assist your shipping or lease-on inquiry today?</p>
           </div>
         </div>
         <div class="chat-options">
           <button class="chat-opt-btn" data-value="quote">Request Freight Quote</button>
           <button class="chat-opt-btn" data-value="join">Apply to Lease Box Truck</button>
           <button class="chat-opt-btn" data-value="tracking">Track Active Cargo</button>
-          <button class="chat-opt-btn" data-value="contact">Office & Owner Details</button>
+          <button class="chat-opt-btn" data-value="contact">Office & CEO Details</button>
         </div>
       </div>
       
