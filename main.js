@@ -1,6 +1,6 @@
 /* ==========================================================================
    ARNOLD'S TRUCKING LOGISTICS LLC - Main JavaScript Logic
-   Includes: Leaflet Map, 3D Yellow Hino Box Truck 360° Interaction, Live Tracking, 
+   Includes: Mobile Touch Menu, Leaflet Map, Live Tracking, 
    Driver App & Freight Quote Forms, Testimonials Carousel, Chatbot & Admin Console.
    ========================================================================== */
 
@@ -16,17 +16,42 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loader) loader.classList.add('loaded');
   }, 700);
 
-  // Mobile Menu Toggle
+  // Mobile Menu & Backdrop Overlay Toggle
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
+  const navOverlay = document.getElementById('nav-overlay');
+
+  const closeMobileMenu = () => {
+    if (navMenu) navMenu.classList.remove('open');
+    if (menuToggle) menuToggle.classList.remove('active');
+    if (navOverlay) navOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  const openMobileMenu = () => {
+    if (navMenu) navMenu.classList.add('open');
+    if (menuToggle) menuToggle.classList.add('active');
+    if (navOverlay) navOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  };
+
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
+      const isOpen = navMenu.classList.contains('open');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     });
 
-    // Close menu when link clicked
+    if (navOverlay) {
+      navOverlay.addEventListener('click', closeMobileMenu);
+    }
+
+    // Close menu when link is clicked
     document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => navMenu.classList.remove('open'));
+      link.addEventListener('click', closeMobileMenu);
     });
   }
 
@@ -84,101 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.hero-stats-grid')) {
     animateCounters();
     animatedStats = true;
-  }
-
-  // --------------------------------------------------------------------------
-  // Interactive 3D Yellow Hino Box Truck Viewer (360° Rotatable with MC #1682000)
-  // --------------------------------------------------------------------------
-  const truck3D = document.getElementById('interactive-truck');
-  const truckContainer = document.querySelector('.truck-3d-container');
-  const autoRotateBtn = document.getElementById('auto-rotate-btn');
-  const rotateLeftBtn = document.getElementById('rotate-left-btn');
-  const rotateRightBtn = document.getElementById('rotate-right-btn');
-
-  if (truck3D && truckContainer) {
-    let isDragging = false;
-    let previousMouseX = 0;
-    let currentRotationY = -35;
-    let currentRotationX = -12;
-    let autoSpin = true;
-
-    // Toggle Auto Spin button
-    if (autoRotateBtn) {
-      autoRotateBtn.addEventListener('click', () => {
-        autoSpin = !autoSpin;
-        if (autoSpin) {
-          truck3D.classList.add('auto-spin');
-          autoRotateBtn.classList.add('active');
-          autoRotateBtn.innerHTML = '<i data-lucide="refresh-cw"></i> 360° Auto Spin';
-        } else {
-          truck3D.classList.remove('auto-spin');
-          autoRotateBtn.classList.remove('active');
-          autoRotateBtn.innerHTML = '<i data-lucide="pause"></i> Spin Paused';
-        }
-        if (window.lucide) window.lucide.createIcons();
-      });
-    }
-
-    // Manual Rotate Left / Right Buttons
-    if (rotateLeftBtn) {
-      rotateLeftBtn.addEventListener('click', () => {
-        autoSpin = false;
-        truck3D.classList.remove('auto-spin');
-        if (autoRotateBtn) autoRotateBtn.classList.remove('active');
-        currentRotationY -= 45;
-        truck3D.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
-      });
-    }
-
-    if (rotateRightBtn) {
-      rotateRightBtn.addEventListener('click', () => {
-        autoSpin = false;
-        truck3D.classList.remove('auto-spin');
-        if (autoRotateBtn) autoRotateBtn.classList.remove('active');
-        currentRotationY += 45;
-        truck3D.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
-      });
-    }
-
-    // Drag logic
-    truckContainer.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      previousMouseX = e.clientX;
-      if (autoSpin) {
-        truck3D.classList.remove('auto-spin');
-      }
-    });
-
-    window.addEventListener('mouseup', () => { isDragging = false; });
-
-    truckContainer.addEventListener('mousemove', (e) => {
-      if (isDragging) {
-        const deltaX = e.clientX - previousMouseX;
-        currentRotationY += deltaX * 1.2;
-        previousMouseX = e.clientX;
-        truck3D.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
-      }
-    });
-
-    // Touch support for mobile
-    truckContainer.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      previousMouseX = e.touches[0].clientX;
-      if (autoSpin) {
-        truck3D.classList.remove('auto-spin');
-      }
-    });
-
-    window.addEventListener('touchend', () => { isDragging = false; });
-
-    truckContainer.addEventListener('touchmove', (e) => {
-      if (isDragging) {
-        const deltaX = e.touches[0].clientX - previousMouseX;
-        currentRotationY += deltaX * 1.2;
-        previousMouseX = e.touches[0].clientX;
-        truck3D.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
-      }
-    });
   }
 
   // --------------------------------------------------------------------------
@@ -456,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // Testimonials Carousel
+  // Testimonials Carousel with Touch Swipe Support
   // --------------------------------------------------------------------------
   const track = document.getElementById('testimonial-track');
   const prevBtn = document.getElementById('prev-review-btn');
@@ -504,6 +434,21 @@ document.addEventListener('DOMContentLoaded', () => {
         goToSlide(currentSlide);
       });
     }
+
+    // Touch Swipe Support for Mobile
+    let startX = 0;
+    let endX = 0;
+    track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
+    track.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      if (startX - endX > 40) {
+        currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
+        goToSlide(currentSlide);
+      } else if (endX - startX > 40) {
+        currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1;
+        goToSlide(currentSlide);
+      }
+    });
 
     // Auto-slide every 6 seconds
     setInterval(() => {
