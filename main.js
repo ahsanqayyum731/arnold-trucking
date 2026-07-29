@@ -1,6 +1,7 @@
 /* ==========================================================================
    ARNOLD'S TRUCKING LOGISTICS LLC - Main JavaScript Logic
-   Includes: Mobile Touch Menu, Leaflet Map, Live Tracking, 
+   Includes: Typewriter Writing Animation, Scroll Reveal Animations,
+   Counting Animations, Mobile Touch Menu, Leaflet Map, Live Tracking, 
    Driver App & Freight Quote Forms, Testimonials Carousel, Chatbot & Admin Console.
    ========================================================================== */
 
@@ -16,7 +17,114 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loader) loader.classList.add('loaded');
   }, 700);
 
-  // Mobile Menu & Backdrop Overlay Toggle
+  // --------------------------------------------------------------------------
+  // 1. Dynamic Typewriter Writing Animation (Hero Section)
+  // --------------------------------------------------------------------------
+  const typingTarget = document.getElementById('hero-typing-target');
+  if (typingTarget) {
+    const phrases = [
+      '26FT Yellow Hino Precision',
+      'Expedited Interstate Freight',
+      'Rodney Arnold Dispatch Desk',
+      'USDOT #4314007 | MC #1682000'
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 90;
+
+    const typeLoop = () => {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        typingTarget.innerText = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 45;
+      } else {
+        typingTarget.innerText = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 90;
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        typeSpeed = 2200; // Pause at end of phrase
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typeSpeed = 400; // Pause before typing next phrase
+      }
+
+      setTimeout(typeLoop, typeSpeed);
+    };
+
+    typeLoop();
+  }
+
+  // --------------------------------------------------------------------------
+  // 2. Scroll Reveal Animations (IntersectionObserver)
+  // --------------------------------------------------------------------------
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+  if (revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-active');
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  }
+
+  // --------------------------------------------------------------------------
+  // 3. Counting Animations (IntersectionObserver for Stats)
+  // --------------------------------------------------------------------------
+  const statNumbers = document.querySelectorAll('.stat-number');
+  if (statNumbers.length > 0) {
+    let statsAnimated = false;
+
+    const animateCounters = () => {
+      statNumbers.forEach(stat => {
+        const target = +stat.getAttribute('data-target');
+        const suffix = stat.getAttribute('data-suffix') || '';
+        let count = 0;
+        const increment = Math.ceil(target / 35);
+
+        const updateCount = () => {
+          count += increment;
+          if (count < target) {
+            stat.innerText = count + suffix;
+            setTimeout(updateCount, 40);
+          } else {
+            stat.innerText = target + suffix;
+          }
+        };
+        updateCount();
+      });
+    };
+
+    const statsSection = document.querySelector('.hero-stats-grid');
+    if (statsSection) {
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !statsAnimated) {
+            animateCounters();
+            statsAnimated = true;
+          }
+        });
+      }, { threshold: 0.2 });
+
+      statsObserver.observe(statsSection);
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // 4. Mobile Menu & Backdrop Overlay Toggle
+  // --------------------------------------------------------------------------
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
   const navOverlay = document.getElementById('nav-overlay');
@@ -32,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navMenu) navMenu.classList.add('open');
     if (menuToggle) menuToggle.classList.add('active');
     if (navOverlay) navOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
   };
 
   if (menuToggle && navMenu) {
@@ -49,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navOverlay.addEventListener('click', closeMobileMenu);
     }
 
-    // Close menu when link is clicked
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', closeMobileMenu);
     });
@@ -74,45 +181,83 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Animated Stats Counter
-  const statNumbers = document.querySelectorAll('.stat-number');
-  let animatedStats = false;
+  // --------------------------------------------------------------------------
+  // 5. Floating AI Chatbot Assistant ("ArnoldBot") with Mobile Fixed Drawer
+  // --------------------------------------------------------------------------
+  const chatbotToggle = document.getElementById('chatbot-toggle-btn');
+  const chatbotWindow = document.getElementById('chatbot-window');
+  const chatbotCloseHeader = document.getElementById('chatbot-close-header');
+  const chatBody = document.getElementById('chat-body');
+  const chatInputForm = document.getElementById('chat-input-form');
+  const chatMessageInput = document.getElementById('chat-message-input');
 
-  const animateCounters = () => {
-    statNumbers.forEach(stat => {
-      const target = +stat.getAttribute('data-target');
-      let count = 0;
-      const increment = Math.ceil(target / 40);
-      const updateCount = () => {
-        count += increment;
-        if (count < target) {
-          stat.innerText = count;
-          setTimeout(updateCount, 40);
-        } else {
-          stat.innerText = target;
+  const toggleChatbot = () => {
+    if (chatbotWindow) {
+      const isHidden = chatbotWindow.classList.contains('hidden');
+      if (isHidden) {
+        chatbotWindow.classList.remove('hidden');
+        if (window.innerWidth <= 600) {
+          document.body.style.overflow = 'hidden';
         }
-      };
-      updateCount();
-    });
-  };
-
-  window.addEventListener('scroll', () => {
-    const statsSection = document.querySelector('.hero-stats-grid');
-    if (statsSection && !animatedStats) {
-      const pos = statsSection.getBoundingClientRect().top;
-      if (pos < window.innerHeight - 100) {
-        animateCounters();
-        animatedStats = true;
+      } else {
+        chatbotWindow.classList.add('hidden');
+        document.body.style.overflow = '';
       }
     }
-  });
-  if (document.querySelector('.hero-stats-grid')) {
-    animateCounters();
-    animatedStats = true;
+  };
+
+  if (chatbotToggle) chatbotToggle.addEventListener('click', toggleChatbot);
+  if (chatbotCloseHeader) chatbotCloseHeader.addEventListener('click', toggleChatbot);
+
+  const addChatMessage = (text, isUser = false) => {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('chat-msg', isUser ? 'user-msg' : 'bot-msg');
+    msgDiv.innerHTML = `<div class="msg-content"><p>${text}</p></div>`;
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  };
+
+  const handleBotResponse = (query) => {
+    const q = query.toLowerCase();
+    let response = "Thank you for contacting ARNOLD'S TRUCKING LOGISTICS LLC! CEO Rodney Arnold and our dispatch team are ready to handle your box truck shipping needs. You can call us directly at (646) 545-9289.";
+
+    if (q.includes('quote') || q.includes('rate') || q.includes('price')) {
+      response = "To request an instant rate quote for your 26ft Box Truck shipment, please fill out our Quote Form on this page or call (646) 545-9289.";
+    } else if (q.includes('lease') || q.includes('driver') || q.includes('apply') || q.includes('join')) {
+      response = "We welcome qualified Box Truck owner-operators! Apply under our MC #1682000 using the 'Join Our Fleet' section on this page.";
+    } else if (q.includes('track') || q.includes('status') || q.includes('where')) {
+      response = "You can enter your shipment reference code (e.g. ARNOLD-777) in our Live Tracking section to view real-time location on the map.";
+    } else if (q.includes('address') || q.includes('location') || q.includes('owner') || q.includes('ceo') || q.includes('phone')) {
+      response = "ARNOLD'S TRUCKING LOGISTICS LLC is owned by CEO Rodney Arnold. Office Address: 13810 BOREN ST #101, HUNTERSVILLE, NC, 28078. Phone: (646) 545-9289. MC #1682000, USDOT #4314007.";
+    }
+
+    setTimeout(() => {
+      addChatMessage(response, false);
+    }, 600);
+  };
+
+  if (chatInputForm) {
+    chatInputForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = chatMessageInput.value.trim();
+      if (val) {
+        addChatMessage(val, true);
+        chatMessageInput.value = '';
+        handleBotResponse(val);
+      }
+    });
   }
 
+  document.querySelectorAll('.chat-opt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const val = btn.getAttribute('data-value');
+      addChatMessage(btn.innerText, true);
+      handleBotResponse(val);
+    });
+  });
+
   // --------------------------------------------------------------------------
-  // Leaflet Interactive Map & Shipment Tracking
+  // 6. Leaflet Interactive Map & Shipment Tracking
   // --------------------------------------------------------------------------
   let map;
   let activePolyline;
@@ -157,14 +302,12 @@ document.addEventListener('DOMContentLoaded', () => {
       zoomControl: true
     });
 
-    // Dark Mode Tile Layer
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OpenStreetMap &copy; CARTO',
       subdomains: 'abcd',
       maxZoom: 19
     }).addTo(map);
 
-    // Initial default tracking load
     loadTrackingData('ARNOLD-777');
   };
 
@@ -201,14 +344,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (resultBox) resultBox.classList.remove('hidden');
 
-    // Update UI elements
     document.getElementById('tracker-ref-id').innerText = data.ref;
     document.getElementById('tracker-status-badge').innerText = data.statusText;
     document.getElementById('tracker-origin').innerText = data.origin;
     document.getElementById('tracker-destination').innerText = data.destination;
     document.getElementById('tracker-ping-time').innerText = data.pingTime;
 
-    // Timeline Steps
     const steps = ['ordered', 'loaded', 'transit', 'delivered'];
     steps.forEach(s => {
       const el = document.getElementById(`step-${s}`);
@@ -221,7 +362,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Update Map
     if (map) {
       if (activePolyline) map.removeLayer(activePolyline);
       if (truckMarker) map.removeLayer(truckMarker);
@@ -233,7 +373,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const dLat = data.destCoords[0];
       const dLng = data.destCoords[1];
 
-      // Interpolate current position based on progress %
       const curLat = oLat + (dLat - oLat) * (data.progress / 100);
       const curLng = oLng + (dLng - oLng) * (data.progress / 100);
 
@@ -258,7 +397,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initMap();
 
-  // Search button event
   const trackingBtn = document.getElementById('tracking-search-btn');
   const trackingInput = document.getElementById('tracking-input');
   if (trackingBtn && trackingInput) {
@@ -269,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // Form Custom File Upload Labels
+  // 7. Form File Upload Labels & Local Data Handling
   // --------------------------------------------------------------------------
   const setupFileInput = (inputId) => {
     const input = document.getElementById(inputId);
@@ -283,7 +421,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupFileInput('driver-cdl');
   setupFileInput('driver-insurance');
 
-  // Local State Storage for Applications & Quotes
   const appState = {
     driverApps: [
       {
@@ -315,7 +452,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   };
 
-  // Driver Application Form Handler
   const driverForm = document.getElementById('driver-application-form');
   if (driverForm) {
     driverForm.addEventListener('submit', (e) => {
@@ -344,7 +480,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Freight Quote Form Handler
   const quoteForm = document.getElementById('shipper-quote-form');
   if (quoteForm) {
     quoteForm.addEventListener('submit', (e) => {
@@ -375,7 +510,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Contact Message Form Handler
   const contactForm = document.getElementById('contact-email-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -386,7 +520,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // Testimonials Carousel with Touch Swipe Support
+  // 8. Testimonials Carousel with Touch Swipe Support
   // --------------------------------------------------------------------------
   const track = document.getElementById('testimonial-track');
   const prevBtn = document.getElementById('prev-review-btn');
@@ -397,7 +531,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = Array.from(track.children);
     let currentSlide = 0;
 
-    // Create pagination dots
     slides.forEach((_, index) => {
       const dot = document.createElement('div');
       dot.classList.add('dot');
@@ -435,7 +568,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Touch Swipe Support for Mobile
     let startX = 0;
     let endX = 0;
     track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
@@ -450,7 +582,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Auto-slide every 6 seconds
     setInterval(() => {
       currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
       goToSlide(currentSlide);
@@ -458,7 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // FAQ Accordion
+  // 9. FAQ Accordion
   // --------------------------------------------------------------------------
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
@@ -470,70 +601,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --------------------------------------------------------------------------
-  // Floating AI Chatbot ("ArnoldBot")
-  // --------------------------------------------------------------------------
-  const chatbotToggle = document.getElementById('chatbot-toggle-btn');
-  const chatbotWindow = document.getElementById('chatbot-window');
-  const chatBody = document.getElementById('chat-body');
-  const chatInputForm = document.getElementById('chat-input-form');
-  const chatMessageInput = document.getElementById('chat-message-input');
-
-  if (chatbotToggle && chatbotWindow) {
-    chatbotToggle.addEventListener('click', () => {
-      chatbotWindow.classList.toggle('hidden');
-    });
-  }
-
-  const addChatMessage = (text, isUser = false) => {
-    const msgDiv = document.createElement('div');
-    msgDiv.classList.add('chat-msg', isUser ? 'user-msg' : 'bot-msg');
-    msgDiv.innerHTML = `<div class="msg-content"><p>${text}</p></div>`;
-    chatBody.appendChild(msgDiv);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  };
-
-  const handleBotResponse = (query) => {
-    const q = query.toLowerCase();
-    let response = "Thank you for contacting ARNOLD'S TRUCKING LOGISTICS LLC! CEO Rodney Arnold and our dispatch team are ready to handle your box truck shipping needs. You can call us directly at (646) 545-9289.";
-
-    if (q.includes('quote') || q.includes('rate') || q.includes('price')) {
-      response = "To request an instant rate quote for your 26ft Box Truck shipment, please fill out our Quote Form on this page or call (646) 545-9289.";
-    } else if (q.includes('lease') || q.includes('driver') || q.includes('apply') || q.includes('join')) {
-      response = "We welcome qualified Box Truck owner-operators! Apply under our MC #1682000 using the 'Join Our Fleet' section on this page.";
-    } else if (q.includes('track') || q.includes('status') || q.includes('where')) {
-      response = "You can enter your shipment reference code (e.g. ARNOLD-777) in our Live Tracking section to view real-time location on the map.";
-    } else if (q.includes('address') || q.includes('location') || q.includes('owner') || q.includes('ceo') || q.includes('phone')) {
-      response = "ARNOLD'S TRUCKING LOGISTICS LLC is owned by CEO Rodney Arnold. Office Address: 13810 BOREN ST #101, HUNTERSVILLE, NC, 28078. Phone: (646) 545-9289. MC #1682000, USDOT #4314007.";
-    }
-
-    setTimeout(() => {
-      addChatMessage(response, false);
-    }, 600);
-  };
-
-  if (chatInputForm) {
-    chatInputForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const val = chatMessageInput.value.trim();
-      if (val) {
-        addChatMessage(val, true);
-        chatMessageInput.value = '';
-        handleBotResponse(val);
-      }
-    });
-  }
-
-  // Quick Action Buttons inside Chatbot
-  document.querySelectorAll('.chat-opt-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const val = btn.getAttribute('data-value');
-      addChatMessage(btn.innerText, true);
-      handleBotResponse(val);
-    });
-  });
-
-  // --------------------------------------------------------------------------
-  // Admin Dashboard Portal Overlay
+  // 10. Admin Dashboard Portal Overlay
   // --------------------------------------------------------------------------
   const adminToggleBtn = document.getElementById('admin-toggle-btn');
   const adminFooterBtn = document.getElementById('admin-trigger-footer');
@@ -551,7 +619,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (adminFooterBtn) adminFooterBtn.addEventListener('click', (e) => { e.preventDefault(); openAdmin(); });
   if (adminCloseBtn) adminCloseBtn.addEventListener('click', closeAdmin);
 
-  // Login handler
   if (adminLoginForm) {
     adminLoginForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -569,7 +636,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Admin Tab Switcher
   const adminTabs = document.querySelectorAll('.admin-tab-btn');
   adminTabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -581,7 +647,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Render Admin Tables
   function updateAdminTables() {
     const driverTbody = document.getElementById('driver-apps-tbody');
     const quoteTbody = document.getElementById('shipper-quotes-tbody');
@@ -622,7 +687,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Admin Live Tracking Controller
   const trackingProgressSlider = document.getElementById('admin-truck-progress');
   const progressValueText = document.getElementById('admin-progress-value');
   const updateTrackingBtn = document.getElementById('admin-update-tracking-btn');
@@ -655,7 +719,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Helper function for Toast Notifications
   function showToast(message, type = 'info') {
     const container = document.getElementById('toast-container');
     if (!container) return;

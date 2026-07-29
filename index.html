@@ -89,7 +89,7 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Dynamic Typing & Parallax Background -->
   <section class="hero-section">
     <div class="hero-bg-overlay"></div>
     <div class="hero-bg-image" style="background-image: url('./assets/hero_box_truck.png');"></div>
@@ -100,54 +100,57 @@
           <span class="badge hero-badge">YELLOW HINO BOX TRUCK FLEET</span>
           <span class="badge authority-badge">USDOT #4314007 | MC #1682000</span>
         </div>
-        <h1 class="hero-title animate-text">Moving Freight Across America With <span class="orange-gradient">Box Truck Precision</span></h1>
+        <h1 class="hero-title animate-text">
+          Moving Freight Across America With <br>
+          <span id="hero-typing-target" class="typing-text"></span>
+        </h1>
         <p class="hero-subtitle animate-text">Reliable Hino Box Truck Transportation, Expedited Freight Solutions, & Dedicated Regional/OTR Shipping Owned by Rodney Arnold.</p>
         
         <div class="hero-buttons">
-          <a href="#quote" class="btn btn-primary">Request A Freight Quote <i data-lucide="arrow-right"></i></a>
+          <a href="#quote" class="btn btn-primary shimmer-effect">Request A Freight Quote <i data-lucide="arrow-right"></i></a>
           <a href="#recruitment" class="btn btn-secondary">Join Our Fleet</a>
         </div>
       </div>
 
-      <!-- Animated Statistics Grid -->
-      <div class="hero-stats-grid">
+      <!-- Animated Numerical Statistics Grid (Counting On Scroll) -->
+      <div class="hero-stats-grid reveal-on-scroll">
         <div class="stat-card glass-card">
           <div class="stat-icon"><i data-lucide="truck"></i></div>
           <div class="stat-info">
-            <h3 class="stat-number" data-target="26">0</h3>
-            <span class="stat-label">FT Box Truck Fleet</span>
+            <h3 class="stat-number" data-target="26" data-suffix="FT">0</h3>
+            <span class="stat-label">Box Truck Fleet</span>
           </div>
         </div>
         <div class="stat-card glass-card">
           <div class="stat-icon"><i data-lucide="navigation"></i></div>
           <div class="stat-info">
-            <h3 class="stat-number" data-target="48">0</h3>
-            <span class="stat-label">States Coverage</span>
+            <h3 class="stat-number" data-target="48" data-suffix=" States">0</h3>
+            <span class="stat-label">Interstate Coverage</span>
           </div>
         </div>
         <div class="stat-card glass-card">
           <div class="stat-icon"><i data-lucide="clock"></i></div>
           <div class="stat-info">
-            <h3 class="stat-number" data-target="99">0</h3>
-            <span class="stat-label">% On-Time Delivery</span>
+            <h3 class="stat-number" data-target="99" data-suffix="%">0</h3>
+            <span class="stat-label">On-Time Delivery</span>
           </div>
         </div>
         <div class="stat-card glass-card">
           <div class="stat-icon"><i data-lucide="headphones"></i></div>
           <div class="stat-info">
-            <h3 class="stat-number" data-target="24">0</h3>
-            <span class="stat-label">/7 Live Dispatch</span>
+            <h3 class="stat-number" data-target="24" data-suffix="/7">0</h3>
+            <span class="stat-label">Live Dispatch Desk</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Us Section (Clean Unblocked Box Truck Showcase) -->
+  <!-- About Us Section (Scroll Reveal Enabled) -->
   <section id="about" class="about-section section-padding">
     <div class="container">
       <div class="grid-2col align-center">
-        <div class="about-content">
+        <div class="about-content reveal-on-scroll">
           <span class="section-tag">About ARNOLD'S TRUCKING LOGISTICS LLC</span>
           <h2 class="section-title">A Yellow Hino Box Truck Fleet Built On Trust & Speed</h2>
           <p class="about-text">
@@ -168,18 +171,16 @@
           </div>
         </div>
         
-        <!-- Clean Fleet Showcase Card (Caption Below Image - Truck Completely Unblocked & Visible on Mobile) -->
-        <div class="about-showcase-card glass-card">
+        <!-- Clean Fleet Showcase Card (Unblocked Image & Scroll Reveal) -->
+        <div class="about-showcase-card glass-card reveal-on-scroll">
           <div class="showcase-badge-top">
             <span class="badge authority-badge"><i data-lucide="shield-check"></i> MC #1682000 &bull; USDOT #4314007</span>
           </div>
           
-          <!-- Box Truck Frame - Zero Overlapping Cards -->
           <div class="showcase-img-frame">
             <img src="./assets/yellow_hino_truck.png" alt="ARNOLD'S TRUCKING LOGISTICS LLC Yellow Hino Box Truck" class="showcase-truck-img" loading="lazy">
           </div>
 
-          <!-- Clean Caption Below Image -->
           <div class="showcase-caption-bar">
             <img src="./assets/logo.png" alt="Official Logo Emblem" class="showcase-logo-tag">
             <div class="showcase-caption-text">
@@ -198,47 +199,47 @@
     </div>
   </section>
 
-  <!-- Core Services Section -->
+  <!-- Core Services Section (Scroll Reveal Animation) -->
   <section id="services" class="services-section section-padding bg-dark">
     <div class="container">
-      <div class="section-header text-center">
+      <div class="section-header text-center reveal-on-scroll">
         <span class="section-tag">Our Core Offerings</span>
         <h2 class="section-title text-white">Full-Service Box Truck Freight Solutions</h2>
         <p class="section-subtitle">ARNOLD'S TRUCKING LOGISTICS LLC deploys versatile 26ft Hino box trucks with liftgates to accommodate commercial, retail, and expedited freight requirements nationwide.</p>
       </div>
 
       <div class="services-grid">
-        <div class="service-card glass-card">
+        <div class="service-card glass-card reveal-on-scroll">
           <div class="service-icon"><i data-lucide="truck"></i></div>
           <h3 class="service-name">Expedited Box Truck Freight</h3>
           <p class="service-desc">Time-critical point-to-point transportation using dedicated 26ft Hino box trucks with liftgate loading capabilities for rapid turnaround.</p>
           <div class="card-bg-gradient"></div>
         </div>
-        <div class="service-card glass-card">
+        <div class="service-card glass-card reveal-on-scroll">
           <div class="service-icon"><i data-lucide="package-check"></i></div>
           <h3 class="service-name">FTL & LTL Box Cargo</h3>
           <p class="service-desc">Handling both Full Truckload and Less-Than-Truckload palletized cargo safely, without unnecessary intermediate re-handling.</p>
           <div class="card-bg-gradient"></div>
         </div>
-        <div class="service-card glass-card">
+        <div class="service-card glass-card reveal-on-scroll">
           <div class="service-icon"><i data-lucide="handshake"></i></div>
           <h3 class="service-name">Freight Broker Partnerships</h3>
           <p class="service-desc">Registered and fully compliant under MC #1682000 and DOT #4314007 with North America's leading 3PL freight brokers.</p>
           <div class="card-bg-gradient"></div>
         </div>
-        <div class="service-card glass-card">
+        <div class="service-card glass-card reveal-on-scroll">
           <div class="service-icon"><i data-lucide="network"></i></div>
           <h3 class="service-name">24/7 Dedicated Dispatch</h3>
           <p class="service-desc">Continuous load monitoring, automated client status notifications, and optimal routing managed by our dispatch team.</p>
           <div class="card-bg-gradient"></div>
         </div>
-        <div class="service-card glass-card">
+        <div class="service-card glass-card reveal-on-scroll">
           <div class="service-icon"><i data-lucide="map-pin"></i></div>
           <h3 class="service-name">Nationwide 48-State Routes</h3>
           <p class="service-desc">Fully licensed, bonded, and insured carrier operations connecting East Coast, Midwest, Southern, and OTR shipping lanes.</p>
           <div class="card-bg-gradient"></div>
         </div>
-        <div class="service-card glass-card">
+        <div class="service-card glass-card reveal-on-scroll">
           <div class="service-icon"><i data-lucide="users"></i></div>
           <h3 class="service-name">Box Truck Lease-On Support</h3>
           <p class="service-desc">Dedicated onboarding for box truck owner-operators, offering competitive pay, prompt settlements, and steady dispatch routes.</p>
@@ -248,10 +249,10 @@
     </div>
   </section>
 
-  <!-- Fleet Gallery & Owner Details (Featuring Rodney Arnold CEO Photo) -->
+  <!-- Fleet Gallery & Owner Details -->
   <section id="fleet" class="fleet-section section-padding">
     <div class="container">
-      <div class="grid-2col align-center section-header-split">
+      <div class="grid-2col align-center section-header-split reveal-on-scroll">
         <div>
           <span class="section-tag">Our Yellow Box Truck Fleet</span>
           <h2 class="section-title">Modern Fleet & Operational Power</h2>
@@ -269,9 +270,8 @@
         </div>
       </div>
 
-      <!-- Gallery Grid -->
       <div class="fleet-gallery">
-        <div class="gallery-item glass-card card-hover-expand">
+        <div class="gallery-item glass-card card-hover-expand reveal-on-scroll">
           <div class="gallery-image" style="background-image: url('./assets/yellow_hino_truck.png');"></div>
           <div class="gallery-info">
             <h4>Yellow Hino Commercial Box Trucks</h4>
@@ -279,7 +279,7 @@
           </div>
         </div>
         
-        <div class="gallery-item glass-card card-hover-expand">
+        <div class="gallery-item glass-card card-hover-expand reveal-on-scroll">
           <div class="gallery-image" style="background-image: url('./assets/box_loading.png');"></div>
           <div class="gallery-info">
             <h4>Hydraulic Liftgate Loading</h4>
@@ -287,7 +287,7 @@
           </div>
         </div>
         
-        <div class="gallery-item glass-card card-hover-expand">
+        <div class="gallery-item glass-card card-hover-expand reveal-on-scroll">
           <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800');"></div>
           <div class="gallery-info">
             <h4>Expedited Interstate Transport</h4>
@@ -295,7 +295,7 @@
           </div>
         </div>
         
-        <div class="gallery-item glass-card card-hover-expand">
+        <div class="gallery-item glass-card card-hover-expand reveal-on-scroll">
           <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800');"></div>
           <div class="gallery-info">
             <h4>Retail & Distribution Drop-offs</h4>
@@ -309,14 +309,13 @@
   <!-- Real-Time Interactive Map & Tracking Integration -->
   <section class="tracking-map-section section-padding bg-dark">
     <div class="container">
-      <div class="section-header text-center">
+      <div class="section-header text-center reveal-on-scroll">
         <span class="section-tag">Active Logistics Map</span>
         <h2 class="section-title text-white">Live Box Truck Tracking & Operations</h2>
         <p class="section-subtitle">Enter your shipment code below to view real-time location and status markers on our interactive map.</p>
       </div>
 
-      <div class="tracking-grid glass-card">
-        <!-- Control Box (Left Side) -->
+      <div class="tracking-grid glass-card reveal-on-scroll">
         <div class="tracking-control-box">
           <h3 class="box-title">Freight Status Inquiry</h3>
           <p class="box-desc">Enter your cargo reference tracking number to locate your active box truck shipment.</p>
@@ -345,7 +344,6 @@
               </div>
             </div>
 
-            <!-- Vertical Timeline Tracker -->
             <div class="timeline-wrapper">
               <div class="timeline-step" id="step-ordered">
                 <span class="step-dot"></span>
@@ -383,7 +381,6 @@
           </div>
         </div>
 
-        <!-- Interactive Map Container (Right Side) -->
         <div class="map-wrapper">
           <div id="logistics-map"></div>
           <div class="map-legend">
@@ -399,49 +396,49 @@
   <!-- Why Choose Us Section -->
   <section class="why-section section-padding">
     <div class="container">
-      <div class="section-header text-center">
+      <div class="section-header text-center reveal-on-scroll">
         <span class="section-tag">Our Key Strengths</span>
         <h2 class="section-title">Why Shippers & Brokers Choose ARNOLD'S TRUCKING LOGISTICS LLC</h2>
         <p class="section-subtitle">We maintain standard-setting reliability built specifically around the demands of box truck shipping.</p>
       </div>
 
       <div class="features-grid">
-        <div class="feature-card glass-card">
+        <div class="feature-card glass-card reveal-on-scroll">
           <div class="feature-icon"><i data-lucide="shield-check"></i></div>
           <h4>Safety & Compliance</h4>
           <p>Full FMCSA compliance, rigorous safety protocols, and daily pre-trip inspections under MC #1682000.</p>
         </div>
-        <div class="feature-card glass-card">
+        <div class="feature-card glass-card reveal-on-scroll">
           <div class="feature-icon"><i data-lucide="user-check"></i></div>
           <h4>Rodney Arnold's Leadership</h4>
           <p>Direct oversight by CEO Rodney Arnold ensures every client gets top-tier personal communication.</p>
         </div>
-        <div class="feature-card glass-card">
+        <div class="feature-card glass-card reveal-on-scroll">
           <div class="feature-icon"><i data-lucide="radio-receiver"></i></div>
           <h4>Real-Time Cellular Pings</h4>
           <p>Instant location pings and direct communication with drivers for hassle-free broker updates.</p>
         </div>
-        <div class="feature-card glass-card">
+        <div class="feature-card glass-card reveal-on-scroll">
           <div class="feature-icon"><i data-lucide="check-circle-2"></i></div>
           <h4>99% On-Time Execution</h4>
           <p>Optimized route mapping and dedicated driver pairs to ensure freight arrives strictly on schedule.</p>
         </div>
-        <div class="feature-card glass-card">
+        <div class="feature-card glass-card reveal-on-scroll">
           <div class="feature-icon"><i data-lucide="dollar-sign"></i></div>
           <h4>Competitive Rate Sheets</h4>
           <p>Clear, transparent lane quotes designed to optimize margin for brokers and commercial shippers.</p>
         </div>
-        <div class="feature-card glass-card">
+        <div class="feature-card glass-card reveal-on-scroll">
           <div class="feature-icon"><i data-lucide="globe"></i></div>
           <h4>Nationwide Service</h4>
           <p>Licensed for interstate operations across all 48 continental states from our Huntersville, NC hub.</p>
         </div>
-        <div class="feature-card glass-card">
+        <div class="feature-card glass-card reveal-on-scroll">
           <div class="feature-icon"><i data-lucide="headphones"></i></div>
           <h4>24/7 Dispatch Desk</h4>
           <p>Around-the-clock dispatch support ready to handle emergency reroutes, dock pings, and load bookings.</p>
         </div>
-        <div class="feature-card glass-card">
+        <div class="feature-card glass-card reveal-on-scroll">
           <div class="feature-icon"><i data-lucide="heart"></i></div>
           <h4>Driver & Operator Respect</h4>
           <p>Driver-focused culture with direct weekly payments, clear communication, and high-paying box truck loads.</p>
@@ -453,7 +450,7 @@
   <!-- Driver Recruitment & Lease-On Form -->
   <section id="recruitment" class="recruitment-section section-padding bg-dark text-white">
     <div class="container">
-      <div class="recruitment-banner glass-card">
+      <div class="recruitment-banner glass-card reveal-on-scroll">
         <div class="recruitment-intro">
           <span class="badge badge-accent">BOX TRUCK DRIVER CAREERS</span>
           <h2 class="banner-title text-white">Lease-On With ARNOLD'S TRUCKING LOGISTICS LLC</h2>
@@ -526,7 +523,6 @@
                 <input type="text" id="driver-states" required placeholder="NC, SC, VA, GA, FL, Midwest, OTR">
               </div>
               
-              <!-- File Upload Inputs -->
               <div class="form-group">
                 <label>Upload CDL / License *</label>
                 <div class="file-upload-wrapper">
@@ -554,7 +550,7 @@
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block form-submit-btn">
+            <button type="submit" class="btn btn-primary btn-block form-submit-btn shimmer-effect">
               <span>Submit Lease-On Application</span>
               <i data-lucide="send"></i>
             </button>
@@ -567,7 +563,7 @@
   <!-- Quote Request Form Section -->
   <section id="quote" class="quote-section section-padding">
     <div class="container">
-      <div class="quote-grid glass-card">
+      <div class="quote-grid glass-card reveal-on-scroll">
         <div class="quote-info-side">
           <span class="section-tag">Instant Rate Inquiry</span>
           <h2 class="section-title">Request A Box Truck Freight Quote</h2>
@@ -640,7 +636,7 @@
               </div>
             </div>
             
-            <button type="submit" class="btn btn-primary btn-block form-submit-btn">
+            <button type="submit" class="btn btn-primary btn-block form-submit-btn shimmer-effect">
               <span>Calculate Freight Rate</span>
               <i data-lucide="calculator"></i>
             </button>
@@ -653,13 +649,13 @@
   <!-- Testimonials Section -->
   <section class="testimonials-section section-padding bg-dark">
     <div class="container">
-      <div class="section-header text-center">
+      <div class="section-header text-center reveal-on-scroll">
         <span class="section-tag">Client Reviews</span>
         <h2 class="section-title text-white">Trusted By Freight Brokers & Shippers</h2>
         <p class="section-subtitle">Read what freight coordinators and owner-operators say about CEO Rodney Arnold and ARNOLD'S TRUCKING LOGISTICS LLC.</p>
       </div>
 
-      <div class="testimonials-slider-container">
+      <div class="testimonials-slider-container reveal-on-scroll">
         <div class="testimonials-track" id="testimonial-track">
           <!-- Slide 1 -->
           <div class="testimonial-card glass-card">
@@ -729,14 +725,14 @@
   <!-- FAQ Section (Accordion) -->
   <section class="faq-section section-padding">
     <div class="container">
-      <div class="section-header text-center">
+      <div class="section-header text-center reveal-on-scroll">
         <span class="section-tag">Common Questions</span>
         <h2 class="section-title">Logistics & Authority FAQ</h2>
         <p class="section-subtitle">Find fast answers regarding box truck fleet capabilities, regulatory numbers, and driver onboarding.</p>
       </div>
 
       <div class="faq-grid max-width-md">
-        <div class="faq-item glass-card">
+        <div class="faq-item glass-card reveal-on-scroll">
           <div class="faq-question">
             <span>What are ARNOLD'S TRUCKING LOGISTICS LLC authority credentials?</span>
             <i data-lucide="plus"></i>
@@ -746,7 +742,7 @@
           </div>
         </div>
         
-        <div class="faq-item glass-card">
+        <div class="faq-item glass-card reveal-on-scroll">
           <div class="faq-question">
             <span>What equipment type is in the fleet?</span>
             <i data-lucide="plus"></i>
@@ -756,7 +752,7 @@
           </div>
         </div>
         
-        <div class="faq-item glass-card">
+        <div class="faq-item glass-card reveal-on-scroll">
           <div class="faq-question">
             <span>Where is ARNOLD'S TRUCKING LOGISTICS LLC based and what areas do you serve?</span>
             <i data-lucide="plus"></i>
@@ -766,7 +762,7 @@
           </div>
         </div>
         
-        <div class="faq-item glass-card">
+        <div class="faq-item glass-card reveal-on-scroll">
           <div class="faq-question">
             <span>How fast can I get a freight rate quote?</span>
             <i data-lucide="plus"></i>
@@ -776,7 +772,7 @@
           </div>
         </div>
         
-        <div class="faq-item glass-card">
+        <div class="faq-item glass-card reveal-on-scroll">
           <div class="faq-question">
             <span>Can Box Truck Owner Operators lease onto your authority?</span>
             <i data-lucide="plus"></i>
@@ -793,7 +789,7 @@
   <section id="contact" class="contact-section section-padding bg-dark text-white">
     <div class="container">
       <div class="grid-2col align-stretch">
-        <div class="contact-info-panel glass-card">
+        <div class="contact-info-panel glass-card reveal-on-scroll">
           <span class="section-tag">Get in Touch</span>
           <h2 class="section-title text-white">Contact Our Logistics Office</h2>
           <p class="section-desc text-white-50">Speak directly to Rodney Arnold or our dispatch team for freight quotes, driver setups, or load status.</p>
@@ -826,12 +822,12 @@
           </div>
           
           <div class="contact-actions-grid">
-            <a href="tel:6465459289" class="btn btn-primary"><i data-lucide="phone-call"></i> Call CEO Now</a>
+            <a href="tel:6465459289" class="btn btn-primary shimmer-effect"><i data-lucide="phone-call"></i> Call CEO Now</a>
             <a href="https://maps.google.com/?q=13810+BOREN+ST+#101,+HUNTERSVILLE,+NC,+28078" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i data-lucide="map-pin"></i> Get Directions</a>
           </div>
         </div>
 
-        <div class="contact-right-panel glass-card">
+        <div class="contact-right-panel glass-card reveal-on-scroll">
           <h3 class="form-title text-white">Send Direct Message</h3>
           <p class="form-desc text-white-50">Write to Rodney Arnold & the dispatch office below.</p>
           
@@ -852,7 +848,7 @@
               <label for="contact-message">Message *</label>
               <textarea id="contact-message" rows="4" required placeholder="Write your message here..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-block form-submit-btn">
+            <button type="submit" class="btn btn-primary btn-block form-submit-btn shimmer-effect">
               <span>Send Message</span>
               <i data-lucide="mail"></i>
             </button>
@@ -928,7 +924,7 @@
     </div>
   </footer>
 
-  <!-- Floating AI Chatbot Widget -->
+  <!-- Floating AI Chatbot Widget (Mobile Clean Fixed Positioning) -->
   <div class="chatbot-widget" id="chatbot-widget">
     <button class="chatbot-toggle-btn" id="chatbot-toggle-btn" aria-label="Open Chatbot Assistant">
       <i data-lucide="message-square" class="icon-open"></i>
@@ -945,6 +941,7 @@
           <h4>ArnoldBot</h4>
           <p><span class="dot-online"></span> AI Box Truck Dispatcher</p>
         </div>
+        <button id="chatbot-close-header" class="chat-header-close" aria-label="Close Chatbot"><i data-lucide="x"></i></button>
       </div>
       
       <div class="chat-body" id="chat-body">
@@ -982,7 +979,6 @@
         <button id="admin-close-btn" class="admin-close-btn" aria-label="Close Admin Dashboard"><i data-lucide="x"></i></button>
       </div>
 
-      <!-- Login Window -->
       <div id="admin-login-box" class="admin-login-box">
         <form id="admin-login-form">
           <div class="form-group">
@@ -998,18 +994,14 @@
         </form>
       </div>
 
-      <!-- Dashboard Contents (Toggled upon auth) -->
       <div id="admin-content-box" class="admin-content-box hidden">
-        <!-- Tabs Nav -->
         <nav class="admin-tabs">
           <button class="admin-tab-btn active" data-tab="driver-apps"><i data-lucide="file-text"></i> Driver Apps (<span id="count-driver-apps">0</span>)</button>
           <button class="admin-tab-btn" data-tab="shipper-quotes"><i data-lucide="calculator"></i> Freight Quotes (<span id="count-shipper-quotes">0</span>)</button>
           <button class="admin-tab-btn" data-tab="tracking-manager"><i data-lucide="navigation"></i> Map Tracking</button>
         </nav>
 
-        <!-- Tab contents -->
         <div class="tab-contents">
-          <!-- Drivers List Tab -->
           <div class="admin-tab-pane active" id="tab-driver-apps">
             <div class="table-scroll-wrapper">
               <table class="admin-table">
@@ -1026,13 +1018,11 @@
                   </tr>
                 </thead>
                 <tbody id="driver-apps-tbody">
-                  <!-- Dynamic rows go here -->
                 </tbody>
               </table>
             </div>
           </div>
           
-          <!-- Shipper Quotes Tab -->
           <div class="admin-tab-pane" id="tab-shipper-quotes">
             <div class="table-scroll-wrapper">
               <table class="admin-table">
@@ -1049,13 +1039,11 @@
                   </tr>
                 </thead>
                 <tbody id="shipper-quotes-tbody">
-                  <!-- Dynamic rows go here -->
                 </tbody>
               </table>
             </div>
           </div>
           
-          <!-- Tracking Manager Tab -->
           <div class="admin-tab-pane" id="tab-tracking-manager">
             <div class="tracking-manager-tool">
               <h4 class="sub-title">Control Active Box Truck Map Markers</h4>
